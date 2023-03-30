@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+</head>
+
+<body>
+   <!DOCTYPE html>
+   <html lang="en">
+
+   <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&display=swap" rel="stylesheet">
+      <title>Document</title>
+      <style>
+         body {
+            font-family: 'Open Sans', sans-serif;
+            background-image: url("https://img.freepik.com/premium-photo/blank-green-paper-texture-background-detail-close-up_7190-1234.jpg?w=996");
+         }
+
+         .signup-form {
+            max-width: 400px;
+            margin: 0px auto;
+            padding: 2rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            background-image: url("https://img.freepik.com/premium-photo/blank-green-paper-texture-background_7190-886.jpg?w=996");
+         }
+
+         .signup-heading {
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+            font-weight: bold;
+            color: #007bff;
+         }
+
+         .form-group {
+            margin-bottom: 1.5rem;
+         }
+
+         label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+         }
+
+         input[type="text"],
+         input[type="email"],
+         input[type="password"] {
+            display: block;
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+         }
+
+         input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 1rem;
+         }
+
+         #img {
+            width: 20%;
+            /* border: 1px solid black; */
+         }
+
+         #img img {
+            width: 40%;
+            border-radius: 60px;
+         }
+
+         #shownamediv {
+            text-align: center;
+            /* border: 1px solid black; */
+
+         }
+
+         #showname {
+            font-family: cursive;
+         }
+
+         .form-group a {
+            margin-left: 5px;
+            text-decoration: none;
+            color: black;
+         }
+
+         .form-group a:hover {
+            text-decoration: underline;
+         }
+         section>div{
+            display:flex;
+            justify-content:space-evenly ;
+         }
+      </style>
+   </head>
+
+
+   <section>
+     <div>
+      <div id="img"><img src="./images/Kathryn Store (2).png" alt=""></div>
+      <div id="shownamediv">
+         <h2 id="showname"></h2>
+      </div>
+     </div>
+
+      
+   </section>
+   <div class="signup-form">
+      <h2 class="signup-heading">Signup</h2>
+      <form>
+         <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+         </div>
+         <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+         </div>
+         <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+         </div>
+         <div class="form-group">
+            <input type="submit" value="Sign Up">
+            <a href="./login.html">Already Have Account</a>
+         </div>
+      </form>
+   </div>
+
+
+
+   </html>
+</body>
+
+<script src="./signup.js"></script>
+
+</html>
