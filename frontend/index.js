@@ -17,3 +17,11 @@ function showText() {
 
 
 setInterval(showText, 2500); // Change text every 3 seconds
+
+//////regbtn/////
+let regbtn = document.getElementById("Regbtn")
+regbtn.addEventListener("click",()=>{
+  window.location.href = "signup.html"
+})
+
+
