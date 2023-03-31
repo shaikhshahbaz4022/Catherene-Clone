@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&display=swap" rel="stylesheet">
+    <title>Login-1</title>
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-image: url("https://img.freepik.com/premium-photo/blank-green-paper-texture-background-detail-close-up_7190-1234.jpg?w=996");
+        }
+
+        .login-container {
+            width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f1f1f1;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 36px;
+            color: #007bff;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+            box-sizing: border-box;
+            /* add this to adjust the box-sizing */
+        }
+
+        button[type="submit"] {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #555;
+        }
+
+        /* add this to create a separate div for the input fields */
+        .form-fields {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        #right {
+            display: flex;
+            justify-content: end;
+            margin-top: 7px;
+        }
+
+        #right a {
+            color: brown;
+            text-decoration: none;
+        }
+
+        #right a:hover {
+            color: blue;
+            text-decoration: underline;
+        }
+
+        #img {
+            width: 20%;
+            /* border: 1px solid black; */
+        }
+
+        #img img {
+            width: 40%;
+            border-radius: 60px;
+        }
+
+        #shownamediv {
+            text-align: center;
+            /* border: 1px solid black; */
+
+        }
+
+        #showname {
+            font-family: cursive;
+        }
+
+        section>div {
+            display: flex;
+            justify-content: space-evenly;
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <div>
+            <div id="img"><img src="./images/Kathryn Store (2).png" alt=""></div>
+            <div id="shownamediv">
+                <h2 id="showname">this is the name of costomer</h2>
+            </div>
+        </div>
+
+
+    </section>
+    <div class="login-container">
+        <h1>Login</h1>
+        <form>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit">Login</button>
+            <div id="right">
+                <a href="./signup.html">SignUp</a>
+            </div>
+        </form>
+    </div>
+</body>
+<script src="./login.js"></script>
+</html>
