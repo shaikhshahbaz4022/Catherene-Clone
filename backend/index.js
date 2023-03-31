@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require("cors");
 const connection = require('./connection/connection');
 const userRouter = require('./routes/userRoute');
+require("dotenv").config()
 
 
 const app = express()
@@ -11,14 +12,14 @@ app.use(cors())
 
 app.use("/users",userRouter)
 
-app.listen(8000, async () => {
+app.listen(process.env.PORT, async () => {
     try {
         await connection
-        console.log("connected to DB");
+        console.log("server is connected to data base SuccesFully");
     } catch (error) {
         console.log("error");
         console.log("error while connecting to db");
     }
-    console.log("connected to port no 8000");
+    console.log("connected to port Succesfully");
 
 })
