@@ -2,6 +2,9 @@ const express = require('express');
 const cors = require("cors");
 const connection = require('./connection/connection');
 const userRouter = require('./routes/userRoute');
+const jeansRouter = require('./routes/jeansRoute');
+const topsRoute = require('./routes/topsRoute');
+const ShoesRoute = require('./routes/shoesRoute');
 require("dotenv").config()
 
 
@@ -10,7 +13,13 @@ app.use(express.json())
 app.use(cors())
 
 
-app.use("/users",userRouter)
+app.use("/users", userRouter)
+//////////////////
+app.use("/jeans", jeansRouter)
+/////////////////////////
+app.use("/tops", topsRoute)
+/////////////////
+app.use("/shoes", ShoesRoute)
 
 app.listen(process.env.PORT, async () => {
     try {
