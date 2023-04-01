@@ -588,3 +588,53 @@ body {
     margin-right: 10px;
 
 }
+
+.material-symbols-outlined:nth-child(4) {
+    position: relative;
+    /* border: 1px solid black; */
+
+}
+
+#hover-data {
+    position: relative;
+}
+
+.material-symbols-outlined {
+    position: relative;
+    cursor: pointer;
+    z-index: 1;
+}
+
+#hover-data .container {
+    text-align: center;
+    border-radius: 15px;
+    position: absolute;
+    top: 70%;
+    left: 40px;
+    width: 120px;
+    background-color: #4527A0;
+    padding: 5px;
+    display: none;
+    z-index: 2;
+    color: #FFFFFF;
+}
+
+#hover-data .material-symbols-outlined:nth-child(4):hover+.container,
+#hover-data .container:hover {
+    display: block;
+}
+
+.container button {
+    padding: 4px;
+    background-color: #CFD8DC;
+    color: blue;
+    font-weight: 700;
+    cursor: pointer;
+border-radius: 4px;
+}
+
+#show-ptag {
+    color: white;
+    font-weight: bolder;
+
+}

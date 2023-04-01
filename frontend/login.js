@@ -28,15 +28,27 @@ formel.addEventListener("submit", (e) => {
             return res.json()
         })
         .then((data) => {
-            alert("Login succesfull")
-            showname.innerHTML = `Mr. ${emailel.value} Login Succesfull`
-            localStorage.setItem("token", data.token)
-            console.log(data.token);
-            console.log(localStorage);
-            // setTimeout(() => {
-            //     window.location.href = "product.html"
-            // }, 3000)
-            // console.log(data);
+            if (data.msg == "Wrong Credentials") {
+                alert("wrong credentials")
+
+            } else {
+                alert("Login succesfull")
+                showname.innerHTML = `Mr. ${emailel.value} Login Succesfull`
+                localStorage.setItem("token", data.token)
+
+                localStorage.setItem("user",JSON.stringify(data.userdetails))
+                console.log(JSON.stringify(data.userdetails));
+
+                console.log(data.token);
+            
+                // setTimeout(() => {
+                //     window.location.href = "index.html"
+                // }, 3000)
+                // console.log(data);
+            }
+
+
+
         }).catch((err) => {
             console.log(err);
         })

@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const topsSchema = mongoose.Schema({
+const CartSchema = mongoose.Schema({
     title: String,
     image: String,
     description: String,
@@ -8,10 +8,12 @@ const topsSchema = mongoose.Schema({
     size: String,
     color: String,
     category: String,
-    id: Number
+    id: Number,
+    userID : String
+    
 })
 
 
-const topsModel = mongoose.model("top",topsSchema)
+const CartModel = mongoose.model("cart",CartSchema)
 
-module.exports = topsModel
+module.exports = CartModel
