@@ -8,7 +8,8 @@ const topsSchema = mongoose.Schema({
     size: String,
     color: String,
     category: String,
-    id: Number
+    id: Number,
+    quantity:Number
 })
 
 

@@ -1,4 +1,4 @@
-const BaseServerUrl = `http://localhost:8000`
+const BaseServerUrl = `https://worrisome-hospital-gown-bull.cyclic.app`
 
 let formel = document.querySelector("form")
 let nameel = document.getElementById('name')

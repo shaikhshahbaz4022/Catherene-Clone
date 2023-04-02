@@ -630,7 +630,7 @@ body {
     color: blue;
     font-weight: 700;
     cursor: pointer;
-border-radius: 4px;
+    border-radius: 4px;
 }
 
 #show-ptag {

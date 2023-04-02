@@ -1,7 +1,7 @@
 
 
 //////////URL/////////////
-const BaseServerUrl = `http://localhost:8000`
+const BaseServerUrl = `https://worrisome-hospital-gown-bull.cyclic.app`
 //////////URL/////////////
 
 //slider top
@@ -36,8 +36,28 @@ let inp2 = document.getElementsByClassName("inp-2")
 ////////////////////globall data access///////////////////
 
 let LSdata = JSON.parse(localStorage.getItem("Localdata")) || [];
+let token = localStorage.getItem("token")
 
 ////////////////////globall data access///////////////////
+
+let regbtn = document.getElementById("Regbtn")
+regbtn.addEventListener("click", () => {
+    if (!token) {
+
+        ////note
+        window.location.href = "../login.html"
+
+    } else {
+        alert("you have logged in !!")
+    }
+})
+//////////////
+
+let cartbtn = document.getElementById("cartbtn")
+cartbtn.addEventListener("click", () => {
+    window.location.href = "./cart.html"
+})
+
 
 
 
@@ -60,9 +80,12 @@ fetch(`${BaseServerUrl}/tops/`)
         return res.json()
     })
     .then((data) => {
-        console.log(data)  ///
+        console.log(data) 
+         ///
+         searchbar(data)
         filterfun(data)
         displayData(data)
+        sortvalue(data)
         temp(data)
         //filetring(data)
 
@@ -113,7 +136,7 @@ function displayData(data) {
         button.addEventListener("click", () => {
             let token = localStorage.getItem("token")
             if (token) {
-                fetch("http://localhost:8000/cart/post", {
+                fetch("https://worrisome-hospital-gown-bull.cyclic.app/cart/post", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
@@ -127,6 +150,7 @@ function displayData(data) {
                     })
                     .then((data) => {
                         // console.log(data);
+                        // data.push({ ...ele, quantity: 1 });
                         if (data.msg == "Data already present") {
                             alert("Product Already in cart")
                         } else {
@@ -150,6 +174,20 @@ function displayData(data) {
         tops.append(main)
     });
 }
+// let datauser = JSON.parse(localStorage.getItem("user")) || []
+// let showptag = document.getElementById("show-ptag")
+
+// showptag.innerText = `Mr. ${datauser.name}`
+///////////////
+// let logoutbtn = document.getElementById("lgtbtn")
+// logoutbtn.addEventListener("click",()=>{
+//     console.log("btn");
+//     localStorage.clear()
+//     setTimeout(() => {
+//         window.location.href = "../index.html"
+//     }, 2000);
+    
+// })
 
 
 function filterfun(data) {
@@ -158,10 +196,10 @@ function filterfun(data) {
     let Sizeselect = document.getElementById("Size-select")
 
     colorselect.addEventListener("change", () => {
-        
+
         if (colorselect.value == "") {
             displayData(data)
-        }  else{
+        } else {
             let filtered = data.filter((ele) => {
                 return ele.color == colorselect.value
             })
@@ -169,20 +207,20 @@ function filterfun(data) {
         }
     })
 
-    Categoryselect.addEventListener("change",()=>{
+    Categoryselect.addEventListener("change", () => {
         if (Categoryselect.value == "") {
             displayData(data)
-        }  else{
+        } else {
             let filtered = data.filter((ele) => {
                 return ele.category == Categoryselect.value
             })
             displayData(filtered)
         }
     })
-    Sizeselect.addEventListener("change",()=>{
+    Sizeselect.addEventListener("change", () => {
         if (Sizeselect.value == "") {
             displayData(data)
-        }  else{
+        } else {
             let filtered = data.filter((ele) => {
                 return ele.size == Sizeselect.value
             })
@@ -193,7 +231,40 @@ function filterfun(data) {
 
 }
 
+function sortvalue(data) {
+  
+    const ascinp = document.getElementById("asc")
+    const descinp = document.getElementById("desc")
+    let sortprice = data
+    ascinp.addEventListener("change", () => {
+        let x = sortprice.sort((a, b) => { return b.price - a.price })
 
+        displayData(x)
+    })
+    descinp.addEventListener("change", () => {
+        let x = sortprice.sort((a, b) => { return a.price - b.price })
+
+        displayData(x)
+    })
+
+
+}
+function searchbar(data){
+    let search = document.getElementById("search-bar");
+    search.addEventListener("input", (e) => {
+      e.preventDefault();
+      const value = e.target.value;
+    
+      let newArr = data.filter(element => {
+    
+        return element.title.toLowerCase().includes(value) || element.description.toLowerCase().includes(value);
+    
+      })
+      displayData(newArr)
+    
+    })
+   
+}
 
 
 
