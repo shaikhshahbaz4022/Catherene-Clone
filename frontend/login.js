@@ -1,4 +1,4 @@
-const BaseServerUrl = `http://localhost:8000`
+const BaseServerUrl = `https://worrisome-hospital-gown-bull.cyclic.app`
 
 let formel = document.querySelector("form")
 
@@ -41,10 +41,10 @@ formel.addEventListener("submit", (e) => {
 
                 console.log(data.token);
             
-                // setTimeout(() => {
-                //     window.location.href = "index.html"
-                // }, 3000)
-                // console.log(data);
+                setTimeout(() => {
+                    window.location.href = "index.html"
+                }, 3000)
+                console.log(data);
             }
 
 

@@ -75,7 +75,7 @@ let tops = document.getElementById("topsAppend")
 
 let newdata = []
 
-fetch(`${BaseServerUrl}/shoes/`)
+fetch(`${BaseServerUrl}/jeans/`)
     .then((res) => {
         return res.json()
     })

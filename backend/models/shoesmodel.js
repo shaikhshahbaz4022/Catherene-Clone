@@ -8,7 +8,8 @@ const shoesSchema = mongoose.Schema({
     size: Number,
     color: String,
     category: String,
-    id: Number
+    id: Number,
+    quantity:Number
 })
 
 

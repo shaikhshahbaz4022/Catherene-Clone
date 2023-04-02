@@ -4,10 +4,10 @@ const jeansRouter = express.Router()
 
 jeansRouter.get("/", async (req, res) => {
     try {
-        const data = jeansModel.find()
-        res.status(201).send(data)
+        const data = await jeansModel.find()
+        res.status(200).send(data)
     } catch (error) {
-        res.status(401).send({ "msg": "error occured while getting jeans" })
+        res.status(400).send({ "msg": "error occured while getting jeans" })
     }
 })
 
@@ -15,10 +15,10 @@ jeansRouter.post("/add", async (req,res)=>{
     try {
         const data = new jeansModel(req.body)
         await data.save()
-        res.status(201).send({"msg":"Jeans Added Succesfully"})
+        res.status(200).send({"msg":"Jeans Added Succesfully"})
         
     } catch (error) {
-        res.status(401).send({ "msg": "error occured while Posting jeans" })
+        res.status(400).send({ "msg": "error occured while Posting jeans" })
         
     }
 })

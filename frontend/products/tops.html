@@ -68,8 +68,8 @@
                     search
                 </span>
             </div>
-            <div>
-                <span class="material-symbols-outlined">
+            <div id="hover-data">
+                <span id="cartbtn" class="material-symbols-outlined">
                     shopping_cart_checkout
                 </span>
                 <span id="Regbtn" class="material-symbols-outlined">
@@ -78,12 +78,14 @@
                 <span class="material-symbols-outlined">
                     dashboard
                 </span>
-
                 <span class="material-symbols-outlined">
                     manage_accounts
                 </span>
+                <div class="container">
+                    <p id="show-ptag"></p>
+                    <button class="logout" id="lgtbtn">Logout</button>
+                </div>
             </div>
-
         </div>
         <div class="main">
             <ul>
@@ -189,7 +191,7 @@
                     </div>
 
                 </li>
-                <li> <a href="#">BOTTOMS</a>
+                <li> <a href="./bottom.html">BOTTOMS</a>
                     <div class="megamenu">
                         <div class="megamenuitems">
                             <h3>Women's Jean Trends</h3>
@@ -242,7 +244,7 @@
 
                     </div>
                 </li>
-                <li> <a href="#">DRESSES</a>
+                <li> <a href="./tops.html">DRESSES</a>
                     <div class="megamenu">
                         <div class="megamenuitems">
                             <h3>Women's Shoes</h3>
@@ -285,7 +287,7 @@
 
                     </div>
                 </li>
-                <li> <a href="#">ACTIVE</a>
+                <li> <a href="./shoes.html">ACTIVE</a>
 
                     <div class="megamenu">
                         <div class="megamenuitems">
@@ -340,7 +342,7 @@
 
                     </div>
                 </li>
-                <li> <a href="#">SLEEPWEAR</a>
+                <li> <a href="./tops.html">SLEEPWEAR</a>
                     <div class="megamenu">
                         <div class="megamenuitems">
                             <h3>Women's Clearance</h3>
@@ -406,7 +408,7 @@
 
                     </div>
                 </li>
-                <li> <a href="../products/shoes.html">SHOES & ACCESSORIES</a>
+                <li> <a href="./shoes.html">SHOES & ACCESSORIES</a>
                     <div class="megamenu">
                         <div class="megamenuitems">
                             <h3>Women's Clearance</h3>
@@ -439,7 +441,7 @@
 
                     </div>
                 </li>
-                <li> <a href="#">SWIMMWEAR</a>
+                <li> <a href="./shoes.html">SWIMMWEAR</a>
                     <div class="megamenu">
                         <div class="megamenuitems">
                             <h3>Women's Clearance</h3>
@@ -505,7 +507,7 @@
 
                     </div>
                 </li>
-                <li> <a href="#">CLEARANCE</a>
+                <li> <a href="./tops.html">CLEARANCE</a>
                     <div class="megamenu">
                         <div class="megamenuitems">
                             <h3>Women's Clearance</h3>
@@ -553,13 +555,14 @@
                     <hr>
                     <h3>SORT BY PRICE</h3>
                     <div id="sort-1">
-
+                      
                         <label>
-                            <input type="radio" class="inp-1" name="sort" value="asc">
+
+                            <input type="radio" id="asc" class="inp-1" name="sort" value="asc">
                             Highest Price
                         </label>
                         <label>
-                            <input type="radio" class="inp-2" name="sort" value="desc">
+                            <input type="radio" id="desc" class="inp-2" name="sort" value="desc">
                             Lowest Price
                         </label>
 
@@ -579,7 +582,7 @@
                                 <option value="Brown">Brown</option>
                             </select>
                         </div>
-                        
+
                         <div>
                             <label for="color-select">Filter By Categories:</label>
                             <select id="Category-select" name="Category-select">
@@ -606,7 +609,7 @@
                     </div>
                     <hr>
                     <div id="liTags">
-                        <ul>CATEGORY</ul> 
+                        <ul>CATEGORY</ul>
                         <li>Suprema & Perfect Price</li>
                         <li>Tunics</li>
                         <li>Tees</li>
@@ -623,7 +626,7 @@
                         <li>Curvy Tops</li>
                         <li>Liz & Me Tops</li>
                         <li>Wear to Work Tops</li>
-                       
+
                     </div>
                 </div>
             </div>
@@ -638,12 +641,140 @@
                 </div>
 
                 <div id="topsAppend">
-                    
+
                 </div>
             </div>
         </div>
 
     </section>
+
+    <footer id="footer-section-2">
+        <div class="footer-1">
+            <div>
+                <ul>Customer Service</ul>
+                <li> <a href="#">Contact Us</a> </li>
+
+                <li>Shopping Info</li>
+                <li>Shipping Info</li>
+                <li>Returns</li>
+                <li>Exchanges</li>
+                <li>Billing & Payment</li>
+                <li>Size & Fit</li>
+                <li>International</li>
+                <li>FAQ</li>
+                <li>Rewards</li>
+                <li>Perks</li>
+            </div>
+            <div>
+                <ul>My Account</ul>
+                <li> <a href="#"> Sign In / Register</a></li>
+                <li>Track My Order</li>
+                <li>Return Order</li>
+                <li>Order History</li>
+                <li>Wishlist</li>
+                <li>Rewards</li>
+
+            </div>
+            <div>
+                <ul> Credit Card</ul>
+                <li>Apply Now</li>
+                <li>Learn More</li>
+                <li>Pay My Bill</li>
+
+
+                <ul>Gift Cards</ul>
+                <li>Gift Card Balance</li>
+                <li>Gift Card Balance</li>
+                <li>E-Gift Card</li>
+
+                <ul>Catalog</ul>
+                <li>Order From Catalog</li>
+                <li>Request a Catalog</li>
+
+            </div>
+            <div>
+                <ul>Catherines</ul>
+                <li> About Us</li>
+                <li>Careers</li>
+                <li>About Fullbeauty Brands</li>
+
+                <ul> Shipping To</ul>
+                <li> <img src="https://cdn.pixabay.com/photo/2016/08/24/17/07/india-1617463__340.png" alt=""> India</li>
+
+
+            </div>
+        </div>
+        <div class="footer-2">
+            <div class="hr-2">
+                <hr>
+            </div>
+            <div class="fo-1">
+                <img src="https://cdn-fsly.yottaa.net/5f90511cd93140f2cca8dcaa/www.catherines.com/v~4b.36c/on/demandware.static/-/Sites-oss-Library/default/dw6309f2d3/oss-images/sfra/logobw-fb.svg?yocs=j_"
+                    alt="error">
+                <p><span>14</span> Brands <span>1</span> Easy Checkout </p>
+            </div>
+            <div class="footer-img">
+                <div>
+                    <img src="https://cdn-fsly.yottaa.net/5f90511cd93140f2cca8dcaa/www.catherines.com/v~4b.36c/on/demandware.static/-/Sites-oss-Library/default/dw880b34de/oss-images/sfra/logobw-os.svg?yocs=j_"
+                        alt="">
+
+                    <img src="https://cdn-fsly.yottaa.net/5f90511cd93140f2cca8dcaa/www.catherines.com/v~4b.36c/on/demandware.static/-/Sites-oss-Library/default/dw86c0e848/oss-images/sfra/logobw-jl.svg?yocs=j_"
+                        alt="">
+
+                    <img src="https://cdn-fsly.yottaa.net/5f90511cd93140f2cca8dcaa/www.catherines.com/v~4b.36c/on/demandware.static/-/Sites-oss-Library/default/dwb9613011/oss-images/sfra/logobw-ia.svg?yocs=j_"
+                        alt="">
+                </div>
+                <div>
+                    <img src="https://cdn-fsly.yottaa.net/5f90511cd93140f2cca8dcaa/www.catherines.com/v~4b.36c/on/demandware.static/-/Sites-oss-Library/default/dwe85a0797/oss-images/sfra/logobw-ww.svg?yocs=j_"
+                        alt="">
+
+                    <img src="https://cdn-fsly.yottaa.net/5f90511cd93140f2cca8dcaa/www.catherines.com/v~4b.36c/on/demandware.static/-/Sites-oss-Library/default/dw8905b664/oss-images/sfra/logobw-el.svg?yocs=j_"
+                        alt="">
+
+                    <img src="https://cdn-fsly.yottaa.net/5f90511cd93140f2cca8dcaa/www.catherines.com/v~4b.36c/on/demandware.static/-/Sites-oss-Library/default/dw7dbfab40/oss-images/sfra/logobw-sh.svg?yocs=j_"
+                        alt="">
+
+                    <img src="https://cdn-fsly.yottaa.net/5f90511cd93140f2cca8dcaa/www.catherines.com/v~4b.36c/on/demandware.static/-/Sites-oss-Library/default/dwfbeb47f8/oss-images/sfra/logobw-ks.svg?yocs=j_"
+                        alt="">
+                </div>
+                <div>
+                    <img src="https://cdn-fsly.yottaa.net/5f90511cd93140f2cca8dcaa/www.catherines.com/v~4b.36c/on/demandware.static/-/Sites-oss-Library/default/dw33b457dd/oss-images/sfra/logobw-rm.svg?yocs=j_"
+                        alt="">
+
+                    <img src="https://cdn-fsly.yottaa.net/5f90511cd93140f2cca8dcaa/www.catherines.com/v~4b.36c/on/demandware.static/-/Sites-oss-Library/default/dwad6fff12/oss-images/sfra/JV-footer-black.svg?yocs=j_"
+                        alt="">
+
+                    <img src="https://cdn-fsly.yottaa.net/5f90511cd93140f2cca8dcaa/www.catherines.com/v~4b.36c/on/demandware.static/-/Sites-oss-Library/default/dwb35a5a58/oss-images/sfra/logobw-sa.svg?yocs=j_"
+                        alt="">
+
+                    <img src="https://cdn-fsly.yottaa.net/5f90511cd93140f2cca8dcaa/www.catherines.com/v~4b.36c/on/demandware.static/-/Sites-oss-Library/default/dw741538db/oss-images/sfra/logobw-fbo-new.svg?yocs=j_"
+                        alt="">
+                </div>
+
+                <div>
+                    <img src="https://cdn-fsly.yottaa.net/5f90511cd93140f2cca8dcaa/www.catherines.com/v~4b.36c/on/demandware.static/-/Sites-oss-Library/default/dwd00f7085/oss-images/sfra/logobw-ca.svg?yocs=j_"
+                        alt="">
+
+                    <img src="https://cdn-fsly.yottaa.net/5f90511cd93140f2cca8dcaa/www.catherines.com/v~4b.36c/on/demandware.static/-/Sites-oss-Library/default/dwa610afc4/oss-images/sfra/ActiveForAll_Logo_blk.png?yocs=j_"
+                        alt="">
+
+                    <img src="https://cdn-fsly.yottaa.net/5f90511cd93140f2cca8dcaa/www.catherines.com/v~4b.36c/on/demandware.static/-/Sites-oss-Library/default/dw82cdcbf1/oss-images/sfra/logobw-bh.svg?yocs=j_"
+                        alt="">
+                </div>
+            </div>
+        </div>
+        <div class="veri-foot">
+            <p>Privacy Policy </p>
+            <div class="vertical-line two"></div>
+            <p>Terms of Use</p>
+            <div class="vertical-line two"></div>
+            <p>Your Privacy Choices</p>
+            <div class="vertical-line two"></div>
+            <p>California Transparency in Supply Chains Act</p>
+            <div class="vertical-line two"></div>
+            <p> Accessibility Statement</p>
+        </div>
+    </footer>
 
 </body>
 <script src="../products/tops.js"></script>
