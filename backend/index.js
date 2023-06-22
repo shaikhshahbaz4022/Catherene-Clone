@@ -25,7 +25,7 @@ app.use("/tops", topsRoute)
 app.use("/shoes", ShoesRoute)
 
 ///////
-app.use(duplicate)
+// app.use(duplicate)
 app.use(auth)
 app.use("/cart",cartRoute)
 ///////

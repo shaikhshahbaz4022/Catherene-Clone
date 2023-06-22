@@ -463,11 +463,33 @@ body {
     font-size: 14px;
     color: black;
 }
-
 .imgbox {
+    border: 2px solid black;
+    margin-right: 30px;
+    width: 50%;
+    height: 200px; /* Set a fixed height for the container */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.imgbox img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+/* .imgbox {
+    border: 2px solid black;
     margin-right: 30px;
     width: 50%;
 }
+
+
+.main222 img {
+    
+    width: 100%;
+} */
 
 .main222 {
     font-size: 15px;
@@ -479,12 +501,6 @@ body {
 
 
 }
-
-.main222 img {
-
-    width: 100%;
-}
-
 .main222 h3,
 p,
 .main222 button,

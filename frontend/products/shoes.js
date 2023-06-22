@@ -1,7 +1,8 @@
 
 
 //////////URL/////////////
-const BaseServerUrl = `https://worrisome-hospital-gown-bull.cyclic.app`
+// const BaseServerUrl = `https://worrisome-hospital-gown-bull.cyclic.app`
+const BaseServerUrl = `http://localhost:8080`
 //////////URL/////////////
 
 //slider top
@@ -136,7 +137,7 @@ function displayData(data) {
         button.addEventListener("click", () => {
             let token = localStorage.getItem("token")
             if (token) {
-                fetch("https://worrisome-hospital-gown-bull.cyclic.app/cart/post", {
+                fetch(`http://localhost:8080/cart/shoes/${ele._id}`, {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
@@ -149,14 +150,24 @@ function displayData(data) {
                         return res.json()
                     })
                     .then((data) => {
-                        // console.log(data);
-                        // data.push({ ...ele, quantity: 1 });
-                        if (data.msg == "Data already present") {
-                            alert("Product Already in cart")
-                        } else {
-                            alert("Product added to cart")
+                        if(data.msg=="Product Added To Cart"){
+                            Swal.fire({
+                                position: "center",
+                                icon: "success",
+                                title: `${data.msg}`,
+                                showConfirmButton: true,
+                                // timer: 1500,
+                            });
 
+                        }else{
+                            Swal.fire({
+                                position: "center",
+                                icon: "error",
+                                title: `${data.msg}`,
+                                text: data.msg,
+                            });
                         }
+                        console.log(data);
 
                     })
                     .catch((err) => {

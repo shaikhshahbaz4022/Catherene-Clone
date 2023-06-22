@@ -1,4 +1,4 @@
-const BaseServerUrl = `https://worrisome-hospital-gown-bull.cyclic.app`
+const BaseServerUrl = `http://localhost:8080`
 
 let formel = document.querySelector("form")
 
@@ -37,9 +37,11 @@ formel.addEventListener("submit", (e) => {
                 localStorage.setItem("token", data.token)
 
                 localStorage.setItem("user",JSON.stringify(data.userdetails))
-                console.log(JSON.stringify(data.userdetails));
+                localStorage.setItem("userID",data.userdetails._id)
+                // console.log(JSON.stringify(data.userdetails));
 
                 console.log(data.token);
+                console.log(data.userdetails);
             
                 setTimeout(() => {
                     window.location.href = "index.html"

@@ -45,3 +45,13 @@ logout.addEventListener("click", () => {
   localStorage.clear()
   window.location.href = "index.html"
 })
+window.addEventListener('scroll', function() {
+  var menuIcon = document.querySelector('.header .menu-icon');
+  var headerHeight = document.querySelector('.header').offsetHeight;
+  
+  if (window.scrollY > headerHeight) {
+    menuIcon.classList.add('hidden');
+  } else {
+    menuIcon.classList.remove('hidden');
+  }
+});

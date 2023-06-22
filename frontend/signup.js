@@ -1,4 +1,7 @@
-const BaseServerUrl = `https://worrisome-hospital-gown-bull.cyclic.app`
+// const BaseServerUrl = `https://worrisome-hospital-gown-bull.cyclic.app`
+
+const BaseServerUrl = `http://localhost:8080/`
+
 
 let formel = document.querySelector("form")
 let nameel = document.getElementById('name')

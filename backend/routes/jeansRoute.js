@@ -23,4 +23,6 @@ jeansRouter.post("/add", async (req,res)=>{
     }
 })
 
+
+
 module.exports = jeansRouter

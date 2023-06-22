@@ -1,7 +1,8 @@
 
 
 //////////URL/////////////
-const BaseServerUrl = `https://worrisome-hospital-gown-bull.cyclic.app`
+// const BaseServerUrl = `https://worrisome-hospital-gown-bull.cyclic.app`
+const BaseServerUrl = `http://localhost:8080`
 //////////URL/////////////
 
 //slider top
@@ -80,9 +81,9 @@ fetch(`${BaseServerUrl}/tops/`)
         return res.json()
     })
     .then((data) => {
-        console.log(data) 
-         ///
-         searchbar(data)
+        console.log(data)
+        ///
+        searchbar(data)
         filterfun(data)
         displayData(data)
         sortvalue(data)
@@ -98,7 +99,7 @@ fetch(`${BaseServerUrl}/tops/`)
     })
 
 
-
+let userID = localStorage.getItem("userID") || ""
 
 
 function displayData(data) {
@@ -133,14 +134,18 @@ function displayData(data) {
         let button = document.createElement("button")
         button.classList.add("Addtocartbtn")
         button.textContent = `  Add to Cart`
+        // button.setAttribute("data-id",ele._id)
         button.addEventListener("click", () => {
+
+
+
             let token = localStorage.getItem("token")
             if (token) {
-                fetch("https://worrisome-hospital-gown-bull.cyclic.app/cart/post", {
+                fetch(`http://localhost:8080/cart/tops/${ele._id}`, {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
-                        "Authorization": `Bearer ${localStorage.getItem("token")}`
+                        "Authorization": `Bearer ${token}`
                     },
                     body: JSON.stringify(ele)
                 })
@@ -149,19 +154,29 @@ function displayData(data) {
                         return res.json()
                     })
                     .then((data) => {
-                        // console.log(data);
-                        // data.push({ ...ele, quantity: 1 });
-                        if (data.msg == "Data already present") {
-                            alert("Product Already in cart")
-                        } else {
-                            alert("Product added to cart")
+                     
+                        if(data.msg=="Product Added To Cart"){
+                            Swal.fire({
+                                position: "center",
+                                icon: "success",
+                                title: `${data.msg}`,
+                                showConfirmButton: true,
+                                // timer: 1500,
+                            });
 
+                        }else{
+                            Swal.fire({
+                                position: "center",
+                                icon: "error",
+                                title: `${data.msg}`,
+                                text: data.msg,
+                            });
                         }
-
+                        console.log(data);
                     })
                     .catch((err) => {
                         console.log(err);
-                        // console.log(err.message);
+                       
                     })
             } else {
                 alert("Login First To Add to Cart")
@@ -186,7 +201,7 @@ function displayData(data) {
 //     setTimeout(() => {
 //         window.location.href = "../index.html"
 //     }, 2000);
-    
+
 // })
 
 
@@ -232,7 +247,7 @@ function filterfun(data) {
 }
 
 function sortvalue(data) {
-  
+
     const ascinp = document.getElementById("asc")
     const descinp = document.getElementById("desc")
     let sortprice = data
@@ -249,21 +264,21 @@ function sortvalue(data) {
 
 
 }
-function searchbar(data){
+function searchbar(data) {
     let search = document.getElementById("search-bar");
     search.addEventListener("input", (e) => {
-      e.preventDefault();
-      const value = e.target.value;
-    
-      let newArr = data.filter(element => {
-    
-        return element.title.toLowerCase().includes(value) || element.description.toLowerCase().includes(value);
-    
-      })
-      displayData(newArr)
-    
+        e.preventDefault();
+        const value = e.target.value;
+
+        let newArr = data.filter(element => {
+
+            return element.title.toLowerCase().includes(value) || element.description.toLowerCase().includes(value);
+
+        })
+        displayData(newArr)
+
     })
-   
+
 }
 
 

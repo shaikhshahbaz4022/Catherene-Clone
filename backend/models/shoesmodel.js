@@ -10,6 +10,7 @@ const shoesSchema = mongoose.Schema({
     category: String,
     id: Number,
     quantity:Number
+    
 })
 
 

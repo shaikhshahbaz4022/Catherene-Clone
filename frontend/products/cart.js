@@ -1,4 +1,5 @@
-const BaseServerUrl = `https://worrisome-hospital-gown-bull.cyclic.app`
+// const BaseServerUrl = `https://worrisome-hospital-gown-bull.cyclic.app`,
+const BaseServerUrl = `http://localhost:8080`
 
 //slider top
 
@@ -14,7 +15,7 @@ function showText() {
   document.getElementById("text-container").innerHTML = texts[index];
   index++;
   if (index >= texts.length) {
-      index = 0;
+    index = 0;
   }
 }
 
@@ -24,21 +25,45 @@ setInterval(showText, 2500); // Change text every 3 seconds
 //slider top
 var main = document.getElementById('append')
 
-fetch(`${BaseServerUrl}/cart`, {
-  headers: {
-    "Content-Type": "application/json",
-    "Authorization": `Bearer ${localStorage.getItem("token")}`
-  }
-})
-  .then((res) => {
-    return res.json()
+fetchAndRender()
+function fetchAndRender(){
+  fetch(`${BaseServerUrl}/cart`, {
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": `Bearer ${localStorage.getItem("token")}`
+    }
   })
-  .then((data) => {
-    appendata(data)
-  })
-  .catch((err) => {
-    console.log(err);
-  })
+    .then((res) => {
+      return res.json()
+    })
+    .then((data) => {
+      // appendata(data)
+   let arr = []
+   arr = [...data.jeans , ...data.tops , ...data.shoes]
+   
+      console.log(arr);
+      getAllDataofdata(arr)
+  
+    })
+    .catch((err) => {
+      console.log(err);
+    })
+}
+
+
+let newArray = []
+function getAllDataofdata(data) {
+  // console.log(data);
+ 
+  appendata(data)
+
+}
+
+
+
+
+
+
 
 
 function appendata(data) {
@@ -53,7 +78,7 @@ function appendata(data) {
     imgbox.setAttribute("class", "imgbox")
 
     let img = document.createElement("img")
-    img.src = ele.image
+    img.src = ele.data.image
 
     imgbox.append(img)
 
@@ -65,16 +90,19 @@ function appendata(data) {
 
 
     let title = document.createElement("h3")
-    title.innerText = `${ele.title}`
+    title.innerText = `${ele.data.title}`
 
     let cateogry = document.createElement("p")
-    cateogry.innerText = `Category : ${ele.category}`
+    cateogry.innerText = `Category : ${ele.data.category}`
 
     let price = document.createElement("h3")
-    price.innerText = `Price : ${ele.price}`
+    // console.log(typeof ele.price);
+    // ele.price = Number(ele.price)
+    // console.log(typeof ele.price);
+    price.innerText = `Price : ${ele.data.price}`
 
     let description = document.createElement("p")
-    description.textContent = `Description  : ${ele.description}`
+    description.textContent = `Description  : ${ele.data.description}`
 
     hr = document.createElement("hr")
 
@@ -103,7 +131,8 @@ function appendata(data) {
 
     // .buttons
     let quantity = document.createElement("span");
-    quantity.textContent = `Qty : ${ele.quantity}`;
+    quantity.textContent = `Qty : ${ele.Quantity}`;
+    console.log(ele.Quantity);
 
 
 
@@ -120,7 +149,7 @@ function appendata(data) {
 
     remove.addEventListener("click", () => {
       // console.log("object");
-      fetch(`https://worrisome-hospital-gown-bull.cyclic.app/cart/delete/${ele._id}`, {
+      fetch(`${BaseServerUrl}/cart/delete/${ele._id}`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
@@ -143,7 +172,7 @@ function appendata(data) {
 
     });
     Increment.addEventListener("click", () => {
-      fetch(`https://worrisome-hospital-gown-bull.cyclic.app/cart/incpatch/${ele._id}`, {
+      fetch(`${BaseServerUrl}/cart/inc/${ele._id}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
@@ -154,10 +183,9 @@ function appendata(data) {
           return res.json()
         })
         .then((res) => {
-          quantity.innerText = res.quantity
-          // console.log(data)
-          window.location.reload()
-          // appendata(data)
+        
+          fetchAndRender()
+          
         })
         .catch((err) => {
           console.log(err.message)
@@ -168,7 +196,7 @@ function appendata(data) {
     });
     decrement.addEventListener("click", () => {
 
-      fetch(`https://worrisome-hospital-gown-bull.cyclic.app/cart/descpatch/${ele._id}`, {
+      fetch(`${BaseServerUrl}/cart/decr/${ele._id}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
@@ -179,10 +207,7 @@ function appendata(data) {
           return res.json()
         })
         .then((res) => {
-          quantity.innerText = res.quantity
-          console.log(data)
-          window.location.reload()
-          // appendata(data)
+        fetchAndRender()
         })
         .catch((err) => {
           console.log(err.message)
@@ -215,17 +240,18 @@ function appendata(data) {
 
     let sum = 0;
     for (let i = 0; i < data.length; i++) {
-      sum += data[i].price * data[i].quantity
+      sum += data[i].data.price * data[i].Quantity
     }
     total.textContent = sum.toFixed(2)
     total2.innerText = sum.toFixed(2)
 
 
-    localStorage.setItem("sum",JSON.stringify(sum) )
+    localStorage.setItem("sum", JSON.stringify(sum))
   });
 
 
-
+let sum = localStorage.getItem("sum")
+console.log(sum);
   let couponbtn = document.getElementById("coupon-btn")
 
   couponbtn.addEventListener("click", () => {
@@ -234,7 +260,11 @@ function appendata(data) {
     if (couponinput.value == "MASAI30") {
       let x = sum * 0.7;
       total2.innerText = x.toFixed(2)
+      sum=x
+      localStorage.setItem("sum",sum)
+      couponbtn.disabled = true;
     }
+    console.log(sum);
 
 
 
