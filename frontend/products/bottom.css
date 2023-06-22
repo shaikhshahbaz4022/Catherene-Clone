@@ -68,7 +68,11 @@ body {
 }
 
 #nav-3 {
+    object-fit: cover;
+    width: auto;
+    /* border: 1px solid black; */
     background-color: #E0F7FA;
+    
     display: flex;
     /* border: 2px solid red; */
     justify-content: space-between;
@@ -403,3 +407,89 @@ body {
     font-weight: bolder;
 
 }
+@media (max-width: 768px) {
+    #nav-3 > div {
+      flex-basis: auto;
+      margin-bottom: 0;
+    }
+    #nav-3>div>input {
+      display: none;
+      /* border-color: yellow; */
+    }
+      /* Styles to apply when the screen width is 768 pixels or less (mobile devices) */
+      .vertical-line:last-of-type,
+      .vertical-line:last-of-type + img,
+      .vertical-line:last-of-type + img + .vertical-line,
+      .vertical-line:last-of-type + img + .vertical-line + img {
+        display: none;
+      }
+    
+  }
+  /* #flex-a {
+    display: none;
+  }
+  @media (max-width: 449px) {
+    #flex-a {
+      display: block;
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      width: 30%;
+      background-color: #f1f1f1;
+      padding: 20px;
+      overflow-y: auto;
+    }
+  
+    #flex-a h2 {
+      margin-top: 0;
+    }
+  
+    #sort-1,
+    #flex-2,
+    #liTags {
+      display: none;
+    }
+  }
+  */
+  @media (max-width: 799px) {
+  #flex-a {
+    display: none;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 30%;
+    background-color: #f1f1f1;
+    padding: 20px;
+    overflow-y: auto;
+  }
+
+  #flex-a h2 {
+    margin-top: 0;
+  }
+
+  #sort-1,
+  #flex-2,
+  #liTags {
+    display: none;
+  }
+}
+  #topsAppend {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 20px;
+  } 
+  
+  @media (min-width: 768px) {
+    #topsAppend {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (min-width: 992px) {
+    #topsAppend {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+  

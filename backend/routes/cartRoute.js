@@ -12,7 +12,7 @@ const cartRoute = express.Router()
 cartRoute.get("/", async (req, res) => {
   const token = req.headers.authorization.split(" ")[1]
   const decoded = jwt.verify(token, "privateKey")
-  console.log(decoded);
+  // console.log(decoded);
   try {
     // console.log(decoded.userID);
     if (decoded) {
@@ -39,20 +39,20 @@ cartRoute.post("/post", async (req, res) => {
 })
 
 
-cartRoute.patch("/incpatch/:id", async (req, res) => {
-  const { id } = req.params
-  const data = await CartModel.findByIdAndUpdate({ _id: id }, { $inc: { quantity: 1 } })
-  console.log(data)
-  res.status(200).send({ "msg": "Data updated", data: data })
-})
+// cartRoute.patch("/incpatch/:id", async (req, res) => {
+//   const { id } = req.params
+//   const data = await CartModel.findByIdAndUpdate({ _id: id }, { $inc: { quantity: 1 } })
+//   console.log(data)
+//   res.status(200).send({ "msg": "Data updated", data: data })
+// })
 
 
-cartRoute.patch("/descpatch/:id", async (req, res) => {
-  const { id } = req.params
-  const data = await CartModel.findByIdAndUpdate({ _id: id }, { $inc: { quantity: -1 } })
-  console.log(data)
-  res.status(200).send({ "msg": "Data updated", data: data })
-})
+// cartRoute.patch("/descpatch/:id", async (req, res) => {
+//   const { id } = req.params
+//   const data = await CartModel.findByIdAndUpdate({ _id: id }, { $inc: { quantity: -1 } })
+//   console.log(data)
+//   res.status(200).send({ "msg": "Data updated", data: data })
+// })
 // cartRoute.delete("/delete/:id", async (req, res) => {
 //   const { id } = req.params
 //   const data = await CartModel.findByIdAndDelete({ _id: id })

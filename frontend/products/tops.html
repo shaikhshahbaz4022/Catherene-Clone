@@ -15,6 +15,7 @@
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <title>Product Page</title>
 </head>
+<link rel="stylesheet" href="../index.css">
 <link rel="stylesheet" href="../products/tops.css">
 
 <body>
@@ -62,6 +63,18 @@
             <img src="https://cdn-fsly.yottaa.net/5f90511cd93140f2cca8dcaa/www.catherines.com/v~4b.36b/on/demandware.static/-/Sites-oss-Library/default/dwcafa1e72/oss-images/brand-header-images/fo_logo_uc.svg?yocs=j_"
                 alt="">
         </div>
+        <header class="header">
+
+            <input class="menu-btn" type="checkbox" id="menu-btn" />
+            <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+            <ul class="menu">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="./shoes.html">Shoes</a></li>
+                <li><a href="./tops.html">Tops</a></li>
+
+            </ul>
+        </header>
+
         <div id="nav-3">
             <div>
                 <h1> <a href="../index.html"> SHOPVIBE STORE</a> </h1>
@@ -71,27 +84,26 @@
                 </span>
             </div>
             <div id="hover-data">
-                <span id="cartbtn" class="material-symbols-outlined">
+
+                <a id="Regbtn" href="#">Login / Signup</a>
+
+                <span id="carttocart" class="material-symbols-outlined">
                     shopping_cart_checkout
-                </span>
-                <span id="Regbtn" class="material-symbols-outlined">
-                    login
-                </span>
-                <span class="material-symbols-outlined">
-                    dashboard
                 </span>
                 <span class="material-symbols-outlined">
                     manage_accounts
                 </span>
                 <div class="container">
                     <p id="show-ptag"></p>
-                    <button class="logout" id="lgtbtn">Logout</button>
+                    <button id="logout">Logout</button>
                 </div>
             </div>
+
+
         </div>
         <div class="main">
             <ul>
-                <li> <a href="#">FEATURED </a>
+                <li> <a href="../index.html">FEATURED </a>
                     <div class="megamenu">
                         <div class="megamenuitems">
                             <h3>Categories</h3>

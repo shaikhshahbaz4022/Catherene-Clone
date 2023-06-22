@@ -22,7 +22,7 @@ function showText() {
         index = 0;
     }
 }
-
+let loadingwidth = false
 
 
 setInterval(showText, 2500); // Change text every 3 seconds
@@ -54,10 +54,10 @@ regbtn.addEventListener("click", () => {
 })
 //////////////
 
-let cartbtn = document.getElementById("cartbtn")
-cartbtn.addEventListener("click", () => {
-    window.location.href = "./cart.html"
-})
+// let cartbtn = document.getElementById("cartbtn")
+// cartbtn.addEventListener("click", () => {
+//     window.location.href = "./cart.html"
+// })
 
 
 
@@ -75,7 +75,7 @@ let tops = document.getElementById("topsAppend")
 
 
 let newdata = []
-
+loadingwidth = true
 fetch(`${BaseServerUrl}/tops/`)
     .then((res) => {
         return res.json()
@@ -89,6 +89,7 @@ fetch(`${BaseServerUrl}/tops/`)
         sortvalue(data)
         temp(data)
         //filetring(data)
+        loadingwidth = false
 
         newdata = data
         // console.log(newdata);
@@ -96,8 +97,12 @@ fetch(`${BaseServerUrl}/tops/`)
     })
     .catch((err) => {
         console.log(err);
+        loadingwidth = false
     })
-
+let flex_a = document.getElementById("flex-a")
+if (loadingwidth == true) {
+    flex_a.style.width = "30%"
+}
 
 let userID = localStorage.getItem("userID") || ""
 
@@ -154,8 +159,8 @@ function displayData(data) {
                         return res.json()
                     })
                     .then((data) => {
-                     
-                        if(data.msg=="Product Added To Cart"){
+
+                        if (data.msg == "Product Added To Cart") {
                             Swal.fire({
                                 position: "center",
                                 icon: "success",
@@ -164,7 +169,7 @@ function displayData(data) {
                                 // timer: 1500,
                             });
 
-                        }else{
+                        } else {
                             Swal.fire({
                                 position: "center",
                                 icon: "error",
@@ -176,7 +181,7 @@ function displayData(data) {
                     })
                     .catch((err) => {
                         console.log(err);
-                       
+
                     })
             } else {
                 alert("Login First To Add to Cart")
@@ -283,3 +288,66 @@ function searchbar(data) {
 
 
 
+
+
+if (token) {
+    regbtn.textContent = `Logout`
+    regbtn.addEventListener("click", () => {
+        fetch(`${BaseServerUrl}/users/logout`, {
+            method: "POST",
+            headers: {
+                "content-type": "Application/json",
+                "Authorization": `Berear ${token}`
+            }
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                if (data.ok == true) {
+                    Swal.fire({
+                        position: "center",
+                        icon: "success",
+                        title: `${data.msg}`,
+                        showConfirmButton: false,
+                        timer: 1500,
+                    });
+                    localStorage.clear()
+                    setTimeout(() => {
+                        window.location.href = "index.html"
+                    }, 2500);
+                } else {
+                    Swal.fire({
+                        position: "center",
+                        icon: "error",
+                        title: `${data.msg}`,
+                        showConfirmButton: true,
+                        // timer: 1500,
+                    });
+                }
+
+            })
+            .catch((err) => {
+                console.log(err);
+            })
+    })
+} else {
+    regbtn.addEventListener("click", () => {
+        window.location.href = "signup.html"
+    })
+}
+
+
+let carttocart = document.getElementById("carttocart")
+carttocart.addEventListener("click",()=>{
+    if(token){
+        window.location.href = "./cart.html"
+    }else{
+        Swal.fire({
+            position: "center",
+            icon: "error",
+            title: `Login First`,
+            showConfirmButton: false,
+            timer: 1500,
+          });
+    }
+
+})

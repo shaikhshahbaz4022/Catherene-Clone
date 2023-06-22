@@ -20,6 +20,7 @@ formel.addEventListener("submit", (e) => {
         method: "POST",
         headers: {
             "Content-type": "application/json"
+         
         },
         body: JSON.stringify(obj)
 

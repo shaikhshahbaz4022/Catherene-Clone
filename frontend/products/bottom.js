@@ -42,23 +42,70 @@ let token = localStorage.getItem("token")
 ////////////////////globall data access///////////////////
 
 let regbtn = document.getElementById("Regbtn")
-regbtn.addEventListener("click", () => {
-    if (!token) {
+// regbtn.addEventListener("click", () => {
+//     if (!token) {
 
-        ////note
-        window.location.href = "../login.html"
+//         ////note
+//         window.location.href = "../login.html"
 
-    } else {
-        alert("you have logged in !!")
-    }
-})
+//     } else {
+//         alert("you have logged in !!")
+//     }
+// })
 //////////////
 
-let cartbtn = document.getElementById("cartbtn")
-cartbtn.addEventListener("click", () => {
-    window.location.href = "./cart.html"
-})
+// let cartbtn = document.getElementById("cartbtn")
+// cartbtn.addEventListener("click", () => {
+//     window.location.href = "./cart.html"
+// })
 
+// let token = localStorage.getItem("token")
+// let regbtn = document.getElementById("Regbtn")
+
+if (token) {
+  regbtn.textContent = `Logout`
+  regbtn.addEventListener("click", () => {
+    fetch(`${BaseServerUrl}/users/logout`, {
+      method: "POST",
+      headers: {
+        "content-type": "Application/json",
+        "Authorization": `Berear ${token}`
+      }
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.ok == true) {
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: `${data.msg}`,
+            showConfirmButton: false,
+            timer: 1500,
+          });
+          localStorage.clear()
+          setTimeout(() => {
+            window.location.href="../index.html"
+          }, 2500);
+        }else{
+          Swal.fire({
+            position: "center",
+            icon: "error",
+            title: `${data.msg}`,
+            showConfirmButton: true,
+            // timer: 1500,
+          });
+        }
+       
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+  })
+} else {
+  regbtn.addEventListener("click", () => {
+    window.location.href = "signup.html"
+  })
+}
 
 
 
@@ -277,5 +324,22 @@ function searchbar(data) {
 
 }
 
+//cart icon
+
+let carttocart = document.getElementById("carttocart")
+carttocart.addEventListener("click",()=>{
+    if(token){
+        window.location.href = "./cart.html"
+    }else{
+        Swal.fire({
+            position: "center",
+            icon: "error",
+            title: `Login First`,
+            showConfirmButton: false,
+            timer: 1500,
+          });
+    }
+
+})
 
 
