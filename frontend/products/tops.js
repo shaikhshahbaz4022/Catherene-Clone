@@ -42,16 +42,16 @@ let token = localStorage.getItem("token")
 ////////////////////globall data access///////////////////
 
 let regbtn = document.getElementById("Regbtn")
-regbtn.addEventListener("click", () => {
-    if (!token) {
+// regbtn.addEventListener("click", () => {
+//     if (!token) {
 
-        ////note
-        window.location.href = "../login.html"
+//         ////note
+//         window.location.href = "../login.html"
 
-    } else {
-        alert("you have logged in !!")
-    }
-})
+//     } else {
+//         alert("you have logged in !!")
+//     }
+// })
 //////////////
 
 // let cartbtn = document.getElementById("cartbtn")
@@ -312,7 +312,7 @@ if (token) {
                     });
                     localStorage.clear()
                     setTimeout(() => {
-                        window.location.href = "index.html"
+                        window.location.href="../index.html"
                     }, 2500);
                 } else {
                     Swal.fire({
@@ -331,7 +331,7 @@ if (token) {
     })
 } else {
     regbtn.addEventListener("click", () => {
-        window.location.href = "signup.html"
+        window.location.href = "../signup.html"
     })
 }
 

@@ -42,25 +42,7 @@ let token = localStorage.getItem("token")
 ////////////////////globall data access///////////////////
 
 let regbtn = document.getElementById("Regbtn")
-// regbtn.addEventListener("click", () => {
-//     if (!token) {
 
-//         ////note
-//         window.location.href = "../login.html"
-
-//     } else {
-//         alert("you have logged in !!")
-//     }
-// })
-//////////////
-
-// let cartbtn = document.getElementById("cartbtn")
-// cartbtn.addEventListener("click", () => {
-//     window.location.href = "./cart.html"
-// })
-
-// let token = localStorage.getItem("token")
-// let regbtn = document.getElementById("Regbtn")
 
 if (token) {
   regbtn.textContent = `Logout`
@@ -103,7 +85,7 @@ if (token) {
   })
 } else {
   regbtn.addEventListener("click", () => {
-    window.location.href = "signup.html"
+    window.location.href = "../signup.html"
   })
 }
 

@@ -20,7 +20,7 @@ formel.addEventListener("submit", (e) => {
         method: "POST",
         headers: {
             "Content-type": "application/json"
-         
+
         },
         body: JSON.stringify(obj)
 
@@ -33,17 +33,22 @@ formel.addEventListener("submit", (e) => {
                 alert("wrong credentials")
 
             } else {
-                alert("Login succesfull")
+
                 showname.innerHTML = `Mr. ${emailel.value} Login Succesfull`
                 localStorage.setItem("token", data.token)
 
-                localStorage.setItem("user",JSON.stringify(data.userdetails))
-                localStorage.setItem("userID",data.userdetails._id)
+                localStorage.setItem("user", JSON.stringify(data.userdetails))
+                localStorage.setItem("userID", data.userdetails._id)
                 // console.log(JSON.stringify(data.userdetails));
 
-                console.log(data.token);
-                console.log(data.userdetails);
-            
+
+                Swal.fire({
+                    position: "center",
+                    icon: "success",
+                    title: `${data.msg}`,
+                    showConfirmButton: false,
+                    timer: 1500,
+                })
                 setTimeout(() => {
                     window.location.href = "index.html"
                 }, 3000)

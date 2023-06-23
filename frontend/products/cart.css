@@ -463,14 +463,21 @@ body {
     font-size: 14px;
     color: black;
 }
+
 .imgbox {
-    border: 2px solid black;
+    /* border: 2px solid black; */
     margin-right: 30px;
     width: 50%;
-    height: 200px; /* Set a fixed height for the container */
+    height: 250px;
+    /* Set a fixed height for the container */
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.imgbox:hover {
+
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .imgbox img {
@@ -501,6 +508,15 @@ body {
 
 
 }
+
+.main222:hover {
+
+
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+
+}
+
 .main222 h3,
 p,
 .main222 button,
@@ -574,6 +590,7 @@ span {
     font-weight: bolder;
 
 }
+
 /* footer */
 .foot-1 {
     /* border: 1px solid black; */
@@ -776,4 +793,25 @@ span {
     color: gray;
     margin-right: 10px;
 
+}
+
+@media (max-width: 768px) {
+    .shop-1 {
+        width: auto;
+    }
+
+    .footer-1 {
+        display: none;
+    }
+}
+
+/* Styles for small screens */
+@media (max-width: 480px) {
+    .shop-1 {
+        width: auto;
+    }
+
+    .footer-1 {
+        display: none;
+    }
 }

@@ -287,5 +287,50 @@ console.log(sum);
 }
 
 
-
+let regbtn = document.getElementById("Regbtn")
+let token = localStorage.getItem("token")
+if (token) {
+  regbtn.textContent = `Logout`
+  regbtn.addEventListener("click", () => {
+    fetch(`${BaseServerUrl}/users/logout`, {
+      method: "POST",
+      headers: {
+        "content-type": "Application/json",
+        "Authorization": `Berear ${token}`
+      }
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.ok == true) {
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: `${data.msg}`,
+            showConfirmButton: false,
+            timer: 1500,
+          });
+          localStorage.clear()
+          setTimeout(() => {
+            window.location.href="../index.html"
+          }, 2500);
+        }else{
+          Swal.fire({
+            position: "center",
+            icon: "error",
+            title: `${data.msg}`,
+            showConfirmButton: true,
+            // timer: 1500,
+          });
+        }
+       
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+  })
+} else {
+  regbtn.addEventListener("click", () => {
+    window.location.href = "../signup.html"
+  })
+}
 

@@ -7,10 +7,10 @@ const auth=(req,res,next)=>{
         jwt.verify(token, "privateKey", function(err, decoded) {
             if(decoded){
                 req.body.userID=decoded.userID
-                req.body.quantity = 1
+                req.body.role = decoded.role
                 next()
             }else{
-                res.status(401).send({"msg":"Wrong Credentials"})
+                res.status(401).send({"msg":"Wrong Credentials............"})
             }
           });
     }else{
