@@ -105,7 +105,7 @@ window.addEventListener('scroll', function () {
 let carttocart = document.getElementById("carttocart")
 carttocart.addEventListener("click",()=>{
     if(token){
-        window.location.href = "./cart.html"
+        window.location.href = "./products/cart.html"
     }else{
         Swal.fire({
             position: "center",

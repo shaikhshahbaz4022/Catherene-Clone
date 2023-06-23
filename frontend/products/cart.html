@@ -14,6 +14,7 @@
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <title>Document</title>
+    <link rel="stylesheet" href="../index.css">
     <link rel="stylesheet" href="./cart.css">
 </head>
 
@@ -62,32 +63,43 @@
             <img src="https://cdn-fsly.yottaa.net/5f90511cd93140f2cca8dcaa/www.catherines.com/v~4b.36b/on/demandware.static/-/Sites-oss-Library/default/dwcafa1e72/oss-images/brand-header-images/fo_logo_uc.svg?yocs=j_"
                 alt="">
         </div>
+        <header class="header">
+
+            <input class="menu-btn" type="checkbox" id="menu-btn" />
+            <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+            <ul class="menu">
+                <li><a href="./products/bottom.html">Jeans</a></li>
+                <li><a href="./products/shoes.html">Shoes</a></li>
+                <li><a href="./products/tops.html">Tops</a></li>
+
+            </ul>
+        </header>
+
         <div id="nav-3">
             <div>
-                <h1> <a href="../index.html"> SHOPVIBE STORE</a> </h1>
+                <h1> <a href="./index.html"> SHOPVIBE STORE</a> </h1>
                 <input type="text" placeholder="Keyword or catalog items#" id="search-bar">
                 <span class="material-symbols-outlined">
                     search
                 </span>
             </div>
             <div id="hover-data">
-                <span id="cartbtn" class="material-symbols-outlined">
+
+                <a id="Regbtn" href="#">Login / Signup</a>
+
+                <span id="carttocart" class="material-symbols-outlined">
                     shopping_cart_checkout
-                </span>
-                <span id="Regbtn" class="material-symbols-outlined">
-                    login
-                </span>
-                <span class="material-symbols-outlined">
-                    dashboard
                 </span>
                 <span class="material-symbols-outlined">
                     manage_accounts
                 </span>
                 <div class="container">
                     <p id="show-ptag"></p>
-                    <button class="logout" id="lgtbtn">Logout</button>
+                    <button id="logout">Logout</button>
                 </div>
             </div>
+
+
         </div>
         <div class="main">
             <ul>

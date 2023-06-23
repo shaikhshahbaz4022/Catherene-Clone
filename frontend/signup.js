@@ -31,9 +31,15 @@ formel.addEventListener("submit", (e) => {
             return res.json()
         })
         .then((data) => {
-            alert("registerd succesfull")
+            
             showname.innerHTML = `Mr. ${nameel.value} Registration Succesfull`
-
+            Swal.fire({
+                position: "center",
+                icon: "success",
+                title: `${data.msg}`,
+                showConfirmButton: false,
+                timer: 1500,
+            })
             setTimeout(() => {
                 window.location.href = "login.html"
             }, 3000)

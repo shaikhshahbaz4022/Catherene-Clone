@@ -119,6 +119,10 @@
             .payment-container {
                 width: 90%;
             }
+
+            .card-details {
+                display: none;
+            }
         }
 
         .customer-details {
@@ -132,6 +136,17 @@
             box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 
         } */
+        a {
+            text-align: end;
+            margin: 5px;
+          color: brown;
+            text-decoration: none;
+        }
+
+        a:hover {
+            font-weight: bold;
+            text-decoration: underline;
+        }
     </style>
 </head>
 
@@ -181,47 +196,61 @@
                     <h2>Card Details</h2>
                     <div class="form-group">
                         <label for="name">Name on Card</label>
-                        <input type="text" id="name" name="name" placeholder="John Doe" required>
+                        <input type="text" id="name" name="name" placeholder="John Doe">
                     </div>
                     <div class="form-group">
                         <label for="card-number">Card Number</label>
-                        <input type="text" id="card-number" name="card-number" placeholder="xxxx-xxxx-xxxx-xxxx"
-                            required>
+                        <input type="text" id="card-number" name="card-number" placeholder="xxxx-xxxx-xxxx-xxxx">
                     </div>
                     <div class="form-row">
                         <div class="form-group">
                             <label for="expiry-date">Expiry Date</label>
-                            <input type="text" id="expiry-date" name="expiry-date" placeholder="MM/YY" required>
+                            <input type="text" id="expiry-date" name="expiry-date" placeholder="MM/YY">
                         </div>
                         <div class="form-group">
                             <label for="cvv">CVV</label>
-                            <input type="text" id="cvv" name="cvv" placeholder="xxx" required>
+                            <input type="text" id="cvv" name="cvv" placeholder="xxx">
                         </div>
                     </div>
                 </div>
             </div>
             <div class="form-group">
                 <label for="amount">Amount</label>
-                <input type="text" id="amount" name="amount" placeholder="$100.00" required>
+                <input type="text" id="amount" name="amount" placeholder="$100.00">
             </div>
             <button class="submit-button" type="submit">Submit Payment</button>
+            <a href="./index.html">Buy More Products</a>
         </form>
     </div>
 
 
 </body>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 <script>
-   let sum =  localStorage.getItem("sum")
-   console.log(sum);
+    let sum = localStorage.getItem("sum")
+    console.log(sum);
 
-   let amountinp = document.getElementById("amount")
-   amountinp.value = sum
+    let amountinp = document.getElementById("amount")
+    amountinp.value = sum
 
-  let formel = document.querySelector("form")
-  formel.addEventListener("submit",()=>{
-    alert(`Payment Succesfull of Total ${sum}`)
-  })
-   
+    let formel = document.querySelector("form")
+    formel.addEventListener("submit", (e) => {
+        e.preventDefault()
+     
+        Swal.fire({
+                    position: "center",
+                    icon: "success",
+                    title: `Payment Succesfull of Total ${sum}`,
+                    showConfirmButton: false,
+                    timer: 1500,
+                })
+        setTimeout(() => {
+            window.location.href = "index.html"
+        }, 3000);
+    })
+
 
 </script>
+
 </html>
