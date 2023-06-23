@@ -10,7 +10,7 @@ const AdminRoute = express.Router()
 AdminRoute.get("/api/users", async (req, res) => {
     try {
         const data = await UserModel.find()
-        res.status(200).send({ "msg": data, "ok": true })
+        res.status(200).send({ "data": data, "ok": true })
     } catch (error) {
         res.status(404).send({ "msg": error.message, "ok": false })
     }
