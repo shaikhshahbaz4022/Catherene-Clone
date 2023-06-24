@@ -1,0 +1,235 @@
+.dashboard-section {
+    display: none;
+    text-align: center;
+    width: 30%;
+    /* border: 3px solid black; */
+    margin: auto;
+}
+
+form {
+    /* display: inline-block; */
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 4px;
+    text-align: left;
+}
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+.form-field label {
+    font-weight: bold;
+}
+
+.form-field input,
+.form-field textarea {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.form-field textarea {
+    resize: vertical;
+}
+
+form button[type="submit"] {
+    background-color: #5C6BC0;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+form button[type="submit"]:hover {
+    background-color: #303F9F;
+}
+
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+    margin-left: 10px;
+}
+
+a:hover {
+    text-decoration: underline;
+    font-weight: 700;
+    color: black;
+}
+
+.container {
+    /* display: flex; */
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+    /* border: 2px solid black; */
+   
+}
+
+.sidebar {
+   
+    background-color: #283593;
+    width: 300px;
+    padding: 20px;
+    position: fixed;
+    height: 100%;
+}
+
+.sidebar h2 {
+    color: white;
+    margin-top: 0;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.sidebar ul {
+    
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar li {
+    margin-top: 15px;
+    margin-left: 20px;
+    color: white;
+    font-size: 18px;
+    margin-bottom: 10px;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar li:hover {
+    text-decoration: underline;
+    background-color:#E0E0E0;
+    color: black;
+}
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+    
+    .sidebar {
+        position: static;
+        width: 100%;
+    }
+    
+    .main {
+        margin-left: 0;
+        margin-top: 20px;
+    }
+}
+
+/* Responsive styles for small screens */
+@media (max-width: 480px) {
+    .sidebar {
+        padding: 10px;
+    }
+    
+    .main {
+        padding: 10px;
+    }
+}
+#cart-container {
+    margin-top: 20px;
+    width: 70%;
+    margin-left: auto; 
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  
+  /* Card */
+  .cart-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 200px;
+    padding: 10px;
+    
+    background-color: #B3E5FC;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  .cart-card:hover{
+    cursor: pointer;
+    background-color: #E1BEE7;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  }
+  
+  /* Card Image */
+  .cart-image {
+    width: 100%;
+    max-height: 150px;
+    object-fit: cover;
+    border-radius: 5px;
+  }
+  
+  /* Card Title */
+  .cart-title {
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+
+  
+  /* Card Details */
+  .cart-details {
+    margin-top: 10px;
+    font-size: 14px;
+    text-align: center;
+  }
+  .Delete-button{
+    margin-top: 5px;
+    display: inline-block;
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 14px;
+    text-align: center;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .Delete-button:hover{
+    background-color: #0056b3;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    transform: scale(1.1); /* Increase the size */
+  }
+  /* Add to Cart Button */
+  .add-to-cart-button {
+    margin-top: 5px;
+    display: inline-block;
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 14px;
+    text-align: center;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .add-to-cart-button:hover {
+    background-color: #0056b3;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    transform: scale(1.1); /* Increase the size */
+  }

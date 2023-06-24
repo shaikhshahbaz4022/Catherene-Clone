@@ -4,11 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard</title>
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="../STYLES/dashboard.css">
+    <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="../STYLES/allproducts.css">
+    <title>Admin Products</title>
 </head>
+
 
 
 <body>
@@ -16,7 +18,7 @@
         <div class="sidebar">
             <h2>Admin Dashboard</h2>
             <ul>
-                <li><span class="material-symbols-outlined">
+                <li> <span class="material-symbols-outlined">
                         dashboard_customize
                     </span><a href="./dashboard.html">Dashboard</a></li>
                 <li><span class="material-symbols-outlined">
@@ -37,29 +39,15 @@
             </ul>
         </div>
 
-        <div class="main">
-            <div class="dashboard-section">
-                <h1>Total Users</h1>
-                <div class="dashboard-stat"><span>0</span></div>
-            </div>
+      <div id="flex-give">
 
-            <div class="dashboard-section">
-                <h1>Total Products</h1>
-                <div class="dashboard-stat"><span>0</span></div>
-            </div>
+          <h1 id="show_total-products"></h1>
+          <div id="cart-container">
+          </div>
+      </div>
 
-            <div class="dashboard-section">
-                <h1>Total Admin</h1>
-                <div class="dashboard-stat"><span>0</span></div>
-            </div>
-
-            <div class="dashboard-section">
-                <h1>Total Customers</h1>
-                <div class="dashboard-stat"><span>0</span></div>
-            </div>
-        </div>
     </div>
 </body>
-<script src="../SCRIPTS/dashboard.js"></script>
 
+<script src="../SCRIPTS/allProducts.js"></script>
 </html>

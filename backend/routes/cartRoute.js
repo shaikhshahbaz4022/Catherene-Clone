@@ -39,26 +39,6 @@ cartRoute.post("/post", async (req, res) => {
 })
 
 
-// cartRoute.patch("/incpatch/:id", async (req, res) => {
-//   const { id } = req.params
-//   const data = await CartModel.findByIdAndUpdate({ _id: id }, { $inc: { quantity: 1 } })
-//   console.log(data)
-//   res.status(200).send({ "msg": "Data updated", data: data })
-// })
-
-
-// cartRoute.patch("/descpatch/:id", async (req, res) => {
-//   const { id } = req.params
-//   const data = await CartModel.findByIdAndUpdate({ _id: id }, { $inc: { quantity: -1 } })
-//   console.log(data)
-//   res.status(200).send({ "msg": "Data updated", data: data })
-// })
-// cartRoute.delete("/delete/:id", async (req, res) => {
-//   const { id } = req.params
-//   const data = await CartModel.findByIdAndDelete({ _id: id })
-//   console.log(data)
-//   res.status(200).send({ "msg": "Data deleted", data: data })
-// })
 
 //for adding jeans to cart
 cartRoute.post("/jeans/:id", async (req, res) => {
