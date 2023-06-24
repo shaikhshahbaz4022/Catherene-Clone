@@ -22,12 +22,11 @@ a:hover {
 
 .container {
     display: flex;
-    position: relative;
-    z-index: 1;
+   
 }
 
 .sidebar {
-    z-index: 2;
+   
     background-color: #283593;
     width: 300px;
     padding: 20px;
@@ -43,7 +42,7 @@ a:hover {
 }
 
 .sidebar ul {
-
+    
     list-style: none;
     padding: 0;
     margin: 0;
@@ -61,9 +60,8 @@ a:hover {
 }
 
 .sidebar li:hover {
-    border-radius: 5px;
     text-decoration: underline;
-    background-color: #E0E0E0;
+    background-color:#E0E0E0;
     color: black;
 }
 
@@ -78,7 +76,7 @@ a:hover {
 }
 
 .main button {
-
+   
     border-radius: 4px;
     padding: 10px 20px;
     margin: 8px;
@@ -94,78 +92,88 @@ a:hover {
     background-color: #283593;
 }
 
-
+/* Responsive styles for medium screens */
 @media (max-width: 768px) {
     .container {
         flex-direction: column;
     }
-
+    
     .sidebar {
         position: static;
         width: 100%;
     }
-
+    
     .main {
         margin-left: 0;
         margin-top: 20px;
     }
 }
 
-
+/* Responsive styles for small screens */
 @media (max-width: 480px) {
     .sidebar {
         padding: 10px;
     }
-
+    
     .main {
         padding: 10px;
     }
 }
+/* cards */
 
-
-
+/* Cart Container */
 #cart-container {
+    /* width: 70%;
+    margin-left: auto; */
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     gap: 20px;
-}
-
-
-.cart-card {
+  }
+  
+  /* Card */
+  .cart-card {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 200px;
     padding: 10px;
-    background-color: #f5f5f5;
+    
+    background-color: #B3E5FC;
     border: 1px solid #ccc;
     border-radius: 5px;
-}
-
-
-.cart-image {
+  }
+  .cart-card:hover{
+    cursor: pointer;
+    background-color: #7986CB;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  }
+  
+  /* Card Image */
+  .cart-image {
     width: 100%;
     max-height: 150px;
     object-fit: cover;
     border-radius: 5px;
-}
-
-
-.cart-title {
+  }
+  
+  /* Card Title */
+  .cart-title {
     font-size: 16px;
     font-weight: bold;
     margin-top: 10px;
-}
+  }
 
-.cart-details {
+  
+  /* Card Details */
+  .cart-details {
     margin-top: 10px;
     font-size: 14px;
     text-align: center;
-}
-
-/* Add to Cart Button */
-.add-to-cart-button {
+  }
+  
+  /* Add to Cart Button */
+  .add-to-cart-button {
     display: inline-block;
     padding: 5px 10px;
     background-color: #007bff;
@@ -175,91 +183,14 @@ a:hover {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-}
-
-.add-to-cart-button:hover {
+  }
+  
+  .add-to-cart-button:hover {
     background-color: #0056b3;
-}
-
-
-.main {
-    margin-left: 300px;
-    padding: 20px;
-    text-align: center;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-}
-
-.dashboard-section {
-    background-color: #81D4FA;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    flex: 1 1 300px;
-    /* Adjust the width as needed */
-    min-width: 250px;
-    max-width: 400px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.dashboard-section:hover {
-    background-color: #5C6BC0;
-    cursor: pointer;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-
-}
-
-.dashboard-section h1 {
-    font-size: 20px;
-    margin-bottom: 10px;
-}
-
-.dashboard-section h1:hover {
-    color: white;
-}
-
-.dashboard-stat {
-    color: white;
-    font-size: 24px;
-    font-weight: bold;
-    color: #333;
-}
-
-.dashboard-stat span {
-    color: black
-}
-
-.dashboard-stat span:hover {
-    color: white;
-}
-
-@media (max-width: 768px) {
-    .main {
-        margin-left: 0;
-        padding: 10px;
-        justify-content: flex-start;
-    }
-
-    .dashboard-section {
-        flex: 1 1 100%;
-        max-width: 100%;
-    }
-}
-
-
-@media (max-width: 480px) {
-    .main {
-        padding: 10px;
-        gap: 10px;
-    }
-
-    .dashboard-section {
-        padding: 10px;
-        flex: 1 1 100%;
-        max-width: 100%;
-    }
+  }
+#flex-give{
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+    width: 70%;
+    margin-left: auto;
 }

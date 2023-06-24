@@ -1,0 +1,140 @@
+* {
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+    margin-left: 10px;
+}
+
+a:hover {
+    text-decoration: underline;
+    font-weight: 700;
+    color: black;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        position: static;
+        width: 100%;
+    }
+
+    .main {
+        margin-left: 0;
+        margin-top: 20px;
+    }
+}
+
+/* Responsive styles for small screens */
+@media (max-width: 480px) {
+    .sidebar {
+        width: auto;
+        padding: 10px;
+        /* height: 100px; */
+    }
+
+    .main {
+        padding: 10px;
+    }
+}
+
+#cartContainer {
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+
+}
+
+.cart {
+    width: 300px;
+    background-color: #303F9F;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.cart:hover {
+    background-color: #5C6BC0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.cart p {
+    color: white;
+    margin-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+    .cart {
+        width: 100%;
+    }
+}
+
+.container {
+    margin: auto;
+    display: flex;
+
+
+
+}
+
+.sidebar {
+
+    background-color: #283593;
+    width: 300px;
+    padding: 20px;
+    /* position: fixed; */
+    height: 100vh;
+}
+
+.sidebar h2 {
+    color: white;
+    margin-top: 0;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.sidebar ul {
+
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar li {
+    margin-top: 15px;
+    margin-left: 20px;
+    color: white;
+    font-size: 18px;
+    margin-bottom: 10px;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar li:hover {
+    border-radius: 5px;
+    text-decoration: underline;
+    background-color: #B3E5FC;
+    border-radius: 5px;
+    color: black;
+}
+
+#show-Count-users {
+    margin-left: 20px;
+}

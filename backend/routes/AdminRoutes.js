@@ -72,46 +72,61 @@ AdminRoute.post("/api/shoes", async (req, res) => {
 
 //update Jeans
 
-AdminRoute.patch("/api/jeans/update/:id", async (req, res) => {
+AdminRoute.patch("/api/product/update/:id", async (req, res) => {
     try {
-        const { id } = req.params
-        const payload = req.body
-        const updated = await jeansModel.findByIdAndUpdate({ _id: id }, payload)
-        res.status(201).send({ "msg": "Jeans Updated Succesfully", "data": updated, "ok": true })
+        const { id } = req.params;
+        const payload = req.body;
+        let updated = null;
+        updated = await jeansModel.findByIdAndUpdate(id, payload);
+        
+        if (!updated) {
+            updated = await topsModel.findByIdAndUpdate(id, payload);
+        }
+        
+        if (!updated) {
+            updated = await shoesModel.findByIdAndUpdate(id, payload);
+        }
+        
+        if (!updated) {
+            return res.status(200).send({ msg: "Product Not Found" });
+        }
+        
+        res.status(201).send({ msg: "Product Updated Successfully", data: updated, ok: true });
     } catch (error) {
-        res.status(401).send({ "err": error.message, "ok": false })
+        res.status(401).send({ err: error.message, ok: false });
     }
-})
+});
 
-//update tops
-AdminRoute.patch("/api/tops/update/:id", async (req, res) => {
-    try {
-        const { id } = req.params
-        const payload = req.body
-        const updated = await topsModel.findByIdAndUpdate({ _id: id }, payload)
-        res.status(201).send({ "msg": "tops Updated Succesfully", "data": updated, "ok": true })
-    } catch (error) {
-        res.status(401).send({ "err": error.message, "ok": false })
-    }
-})
-//update shoes
-AdminRoute.patch("/api/shoes/update/:id", async (req, res) => {
-    try {
-        const { id } = req.params
-        const payload = req.body
-        const updated = await shoesModel.findByIdAndUpdate({ _id: id }, payload)
-        res.status(201).send({ "msg": "shoes Updated Succesfully", "data": updated, "ok": true })
-    } catch (error) {
-        res.status(401).send({ "err": error.message, "ok": false })
-    }
-})
+
+// //update tops
+// AdminRoute.patch("/api/tops/update/:id", async (req, res) => {
+//     try {
+//         const { id } = req.params
+//         const payload = req.body
+//         const updated = await topsModel.findByIdAndUpdate({ _id: id }, payload)
+//         res.status(201).send({ "msg": "tops Updated Succesfully", "data": updated, "ok": true })
+//     } catch (error) {
+//         res.status(401).send({ "err": error.message, "ok": false })
+//     }
+// })
+// //update shoes
+// AdminRoute.patch("/api/shoes/update/:id", async (req, res) => {
+//     try {
+//         const { id } = req.params
+//         const payload = req.body
+//         const updated = await shoesModel.findByIdAndUpdate({ _id: id }, payload)
+//         res.status(201).send({ "msg": "shoes Updated Succesfully", "data": updated, "ok": true })
+//     } catch (error) {
+//         res.status(401).send({ "err": error.message, "ok": false })
+//     }
+// })
 
 //delete jeans
 AdminRoute.delete("/api/jeans/delete/:id", async (req, res) => {
     try {
         const { id } = req.params
 
-       await jeansModel.findByIdAndDelete({ _id: id })
+        await jeansModel.findByIdAndDelete({ _id: id })
         res.status(201).send({ "msg": "Jeans Deleted Succesfully", "ok": true })
     } catch (error) {
         res.status(401).send({ "err": error.message, "ok": false })
@@ -123,7 +138,7 @@ AdminRoute.delete("/api/tops/delete/:id", async (req, res) => {
     try {
         const { id } = req.params
 
-       await topsModel.findByIdAndDelete({ _id: id })
+        await topsModel.findByIdAndDelete({ _id: id })
         res.status(201).send({ "msg": "tops Deleted Succesfully", "ok": true })
     } catch (error) {
         res.status(401).send({ "err": error.message, "ok": false })
@@ -135,7 +150,7 @@ AdminRoute.delete("/api/shoes/delete/:id", async (req, res) => {
     try {
         const { id } = req.params
 
-       await shoesModel.findByIdAndDelete({ _id: id })
+        await shoesModel.findByIdAndDelete({ _id: id })
         res.status(201).send({ "msg": "Shoes Deleted Succesfully", "ok": true })
     } catch (error) {
         res.status(401).send({ "err": error.message, "ok": false })
