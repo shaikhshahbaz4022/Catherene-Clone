@@ -117,8 +117,9 @@ a:hover {
 }
 
 .sidebar li:hover {
+    border-radius: 5px;
     text-decoration: underline;
-    background-color:#E0E0E0;
+    background-color: #E0E0E0;
     color: black;
 }
 @media (max-width: 768px) {

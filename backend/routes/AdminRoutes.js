@@ -38,10 +38,10 @@ AdminRoute.post("/api/jeans", async (req, res) => {
     try {
         const data = new jeansModel(req.body)
         await data.save()
-        res.status(200).send({ "msg": "Jeans Added Succesfully", "data": data })
+        res.status(200).send({ "msg": "Jeans Added Succesfully", "data": data , "ok":true })
 
     } catch (error) {
-        res.status(400).send({ "msg": "error occured while Posting jeans", "err": error.message })
+        res.status(400).send({ "msg": "error occured while Posting jeans", "err": error.message , "ok":false })
 
     }
 })
@@ -49,10 +49,10 @@ AdminRoute.post("/api/tops", async (req, res) => {
     try {
         const data = new topsModel(req.body)
         await data.save()
-        res.status(200).send({ "msg": "Jeans Added Succesfully", "data": data })
+        res.status(200).send({ "msg": "Tops Added Succesfully", "data": data , "ok":true })
 
     } catch (error) {
-        res.status(400).send({ "msg": "error occured while Posting tops", "err": error.message })
+        res.status(400).send({ "msg": "error occured while Posting tops", "err": error.message, "ok":false })
 
     }
 })
@@ -61,10 +61,10 @@ AdminRoute.post("/api/shoes", async (req, res) => {
     try {
         const data = new shoesModel(req.body)
         await data.save()
-        res.status(201).send({ "msg": "Jeans Added Succesfully" })
+        res.status(201).send({ "msg": "Shoes Added Succesfully" , "ok":true })
 
     } catch (error) {
-        res.status(401).send({ "msg": "error occured while Posting shoes", "err": error.message })
+        res.status(401).send({ "msg": "error occured while Posting shoes", "err": error.message , "ok":false})
 
     }
 

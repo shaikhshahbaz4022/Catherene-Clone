@@ -1,11 +1,13 @@
-const BaseServerUrl = `http://localhost:8080`
+const BaseServerUrl = `https://crazy-eel-top-hat.cyclic.app`
 
 let formel = document.querySelector("form")
+// let user = JSON.parse(localStorage.getItem("user")) || []
+// console.log(user);
 
 let emailel = document.getElementById("email")
 let passwordel = document.getElementById("password")
 let showname = document.getElementById("showname")
-console.log("object");
+// console.log("object");
 formel.addEventListener("submit", (e) => {
     e.preventDefault()
 
@@ -29,17 +31,17 @@ formel.addEventListener("submit", (e) => {
             return res.json()
         })
         .then((data) => {
-            if (data.msg == "Wrong Credentials") {
-                alert("wrong credentials")
+            if (data.msg == "Login successful") {
 
-            } else {
+
+           
 
                 showname.innerHTML = `Mr. ${emailel.value} Login Succesfull`
                 localStorage.setItem("token", data.token)
 
                 localStorage.setItem("user", JSON.stringify(data.userdetails))
                 localStorage.setItem("userID", data.userdetails._id)
-                // console.log(JSON.stringify(data.userdetails));
+            
 
 
                 Swal.fire({
@@ -49,10 +51,21 @@ formel.addEventListener("submit", (e) => {
                     showConfirmButton: false,
                     timer: 1500,
                 })
-                setTimeout(() => {
-                    window.location.href = "index.html"
-                }, 3000)
+                let role = data.userdetails.role
+                if (role == "Admin") {
+                    setTimeout(() => {
+                        window.location.href = "./Admin_File/HTML/dashboard.html"
+                    }, 3000);
+                } else {
+                    setTimeout(() => {
+                        window.location.href = "index.html"
+                    }, 3000)
+
+                }
+
                 console.log(data);
+            }else{
+                alert("wrong credentials")
             }
 
 

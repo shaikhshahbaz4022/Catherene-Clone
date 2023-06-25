@@ -1,6 +1,63 @@
-const Base_Server_url = `http://localhost:8080`
-const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOiI2NDk1ZWRkNzNiZjVjZjc5OWM0MzBlN2MiLCJyb2xlIjoiVXNlciIsImlhdCI6MTY4NzU0NzM1NiwiZXhwIjoxNjg4MTUyMTU2fQ.OQ6NPb3OIIWBQ9YSy92WwEswn3g1ms3QnWKsASxh318"
+let user = document.getElementById("user")
+function Fetch() {
+    fetch(`https://crazy-eel-top-hat.cyclic.app/admin/api/users`, {
+        method: "GET",
+        headers: {
+            "content-type": "application/json",
+            "Authorization": `Berear ${token}`
+        }
+    })
+        .then((res) => res.json())
+        .then((data) => {
+            user.textContent = data.data.length
 
-let getusers = document.getElementById("get-users")
-const productBtn = document.getElementById("get-products")
+        })
+        .catch((err) => {
+            console.log(err);
+        });
+}
+
+Fetch()
+
+let prod = document.getElementById("prod")
+const ProductFetch = () => {
+    const optionss = {
+        method: "GET",
+        headers: {
+            "content-type": "application/json",
+            "Authorization": `Berear ${token}`
+        }
+    }
+    fetch(`${Base_Server_url}/admin/api/products`, optionss)
+        .then((res) => res.json())
+        .then((data) => {
+            prod.textContent = data.length
+
+        })
+        .catch((err) => {
+            console.log(err);
+        })
+}
+
+ProductFetch()
+let jean = document.getElementById("jean")
+const JeansGet = () => {
+    const optionss = {
+        method: "GET",
+        headers: {
+            "content-type": "application/json",
+            "Authorization": `Berear ${token}`
+        }
+    }
+    fetch(`${Base_Server_url}/jeans`, optionss)
+        .then((res) => res.json())
+        .then((data) => {
+            jean.textContent = data.length
+
+        })
+        .catch((err) => {
+            console.log(err);
+        })
+}
+JeansGet()
 

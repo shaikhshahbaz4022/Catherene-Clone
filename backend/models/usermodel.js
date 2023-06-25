@@ -8,7 +8,8 @@ const userShema = mongoose.Schema({
         type : String,
         enum : ["Admin","User"],
         default : "User"
-    }
+    },
+    image:String
 
 }, {
     versionKey: false

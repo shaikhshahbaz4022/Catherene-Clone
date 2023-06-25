@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="../STYLES/Add_prod.css">
+    <link rel="shortcut icon" type="image/x-icon" href="../STYLES/Kathryn Store (2).png">
+  
+    <title>Add Jeans</title>
+</head>
+<body>
+    <div class="container">
+    <div class="sidebar">
+        <h2>Admin Dashboard</h2>
+        <ul>
+            <!-- <li><span id="show-data"></span></li> -->
+            <li><span class="material-symbols-outlined">
+                    dashboard_customize
+                </span><a href="./dashboard.html">Dashboard</a></li>
+            <li><span class="material-symbols-outlined">
+                    group
+                </span><a href="./allUsers.html">Users</a></li>
+            <li><span class="material-symbols-outlined">
+                    category
+                </span><a href="./allproducts.html">Products</a></li>
+            <li><span class="material-symbols-outlined">
+                    tips_and_updates
+                </span><a href="./Add_Upd_Jeans.html">Update-Delete Products</a></li>
+                <li><span class="material-symbols-outlined">
+                    tips_and_updates
+                  </span><a href="./Add_Prod.html">ADD New Jeans</a></li>
+                  <li><span class="material-symbols-outlined">
+                    tips_and_updates
+                  </span><a href="./Add_Prod_Tops.html">ADD New Tops</a></li>
+                  <li><span class="material-symbols-outlined">
+                    tips_and_updates
+                  </span><a href="./Add_Prod_Shoes.html">ADD New Shoes</a></li>
+        
+                <li><span class="material-symbols-outlined">
+                    logout
+                </span><a href="#" id="logout">Logout Admin</a></li>
+        </ul>
+    </div>
+    <div class="form-container">
+      <h2>Add New Jeans</h2>
+      <form id="productForm">
+        
+        <div class="form-field">
+          <label for="title">Title:</label>
+          <input type="text" id="title" name="title" required>
+        </div>
+  
+        <div class="form-field">
+          <label for="image">Image URL:</label>
+          <input type="text" id="image" name="image" required>
+        </div>
+  
+        <div class="form-field">
+          <label for="description">Description:</label>
+          <textarea id="description" name="description" rows="4" required></textarea>
+        </div>
+  
+        <div class="form-field">
+          <label for="price">Price:</label>
+          <input type="text" id="price" name="price" required>
+        </div>
+  
+        <div class="form-field">
+          <label for="size">Size:</label>
+          <input type="number" id="size" name="size" required>
+        </div>
+  
+        <div class="form-field">
+          <label for="color">Color:</label>
+          <input type="text" id="color" name="color" required>
+        </div>
+  
+        <div class="form-field">
+          <label for="category">Category:</label>
+          <input type="text" id="category" name="category" required>
+        </div>
+  
+        <div class="form-field">
+          <label for="quantity">Quantity:</label>
+          <input type="number" id="quantity" name="quantity" required>
+        </div>
+  
+        <div class="form-field">
+          <input type="submit" value="Add Product">
+        </div>
+      </form>
+    </div>
+    </div>
+  </body>
+  <script src="../SCRIPTS/Logout.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="../SCRIPTS/Add_prod.js"></script>
+
+</html>

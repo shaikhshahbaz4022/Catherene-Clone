@@ -2,7 +2,7 @@
 
 //////////URL/////////////
 // const BaseServerUrl = `https://worrisome-hospital-gown-bull.cyclic.app`
-const BaseServerUrl = `http://localhost:8080`
+const BaseServerUrl = `https://crazy-eel-top-hat.cyclic.app`
 //////////URL/////////////
 
 //slider top
@@ -137,7 +137,7 @@ function displayData(data) {
         button.addEventListener("click", () => {
             let token = localStorage.getItem("token")
             if (token) {
-                fetch(`http://localhost:8080/cart/shoes/${ele._id}`, {
+                fetch(`https://crazy-eel-top-hat.cyclic.app/cart/shoes/${ele._id}`, {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",

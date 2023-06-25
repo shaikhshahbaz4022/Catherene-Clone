@@ -16,7 +16,7 @@
       <meta charset="UTF-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" type="image/x-icon" href="./images/Kathryn Store (2).png">
+      <link rel="shortcut icon" type="image/x-icon" href="./images/Kathryn Store (2).png">
 
       <link rel="preconnect" href="https://fonts.googleapis.com">
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -109,23 +109,43 @@
             text-decoration: underline;
             color: #007bff;
          }
-         section>div{
-            display:flex;
-            justify-content:space-evenly ;
+
+         section>div {
+            display: flex;
+            justify-content: space-evenly;
+         }
+
+         .google-signup-link {
+            display: inline-block;
+            text-decoration: none;
+            padding: 10px;
+            background-color: #fff;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+         }
+
+         .google-signup-link:hover {
+            background-color: #f1f1f1;
+         }
+
+         .google-signup-image {
+            width: 30px;
+            height: 30px;
+            margin-right: 5px;
          }
       </style>
    </head>
 
 
    <section>
-     <div>
-      <div id="img"><img src="./images/Kathryn Store (2).png" alt=""></div>
-      <div id="shownamediv">
-         <h2 id="showname"></h2>
+      <div>
+         <div id="img"><img src="./images/Kathryn Store (2).png" alt=""></div>
+         <div id="shownamediv">
+            <h2 id="showname"></h2>
+         </div>
       </div>
-     </div>
 
-      
+
    </section>
    <div class="signup-form">
       <h2 class="signup-heading">Signup</h2>
@@ -146,6 +166,12 @@
             <input type="submit" value="Sign Up">
             <a href="./login.html">Already Have Account</a>
          </div>
+         <a href="https://crazy-eel-top-hat.cyclic.app/users/auth/google" class="google-signup-link">
+            <img id="im"
+               src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/1200px-Google_%22G%22_Logo.svg.png"
+               alt="Google Logo" class="google-signup-image">
+            Signup With Google
+         </a>
       </form>
    </div>
 

@@ -1,10 +1,10 @@
 const cartContainer = document.getElementById("cartContainer");
-let token = localStorage.getItem("token")
+// let token = localStorage.getItem("token")
 
 let showTotalusers = document.getElementById("show-Count-users")
 
 function Fetch() {
-    fetch(`http://localhost:8080/admin/api/users`, {
+    fetch(`https://crazy-eel-top-hat.cyclic.app/admin/api/users`, {
         method: "GET",
         headers: {
             "content-type": "application/json",

@@ -1,7 +1,7 @@
-const Base_Server_url = `http://localhost:8080`
+const BaseURL = `https://crazy-eel-top-hat.cyclic.app`
 const productCart = document.getElementById('cart-container');
-const token = localStorage.getItem("token")
-let show_data = document.getElementById("show-data")
+// const token = localStorage.getItem("token")
+// let show_data = document.getElementById("show-data")
 let ItemID_Selected = null
 
 const ProductFetch = () => {
@@ -12,11 +12,11 @@ const ProductFetch = () => {
             "Authorization": `Berear ${token}`
         }
     }
-    fetch(`${Base_Server_url}/admin/api/products`, optionss)
+    fetch(`${BaseURL}/admin/api/products`, optionss)
         .then((res) => res.json())
         .then((data) => {
             DisplayProducts(data)
-            show_data.textContent = `Total Products :-  ${data.length}`
+            // show_data.textContent = `Total Products :-  ${data.length}`
 
         })
         .catch((err) => {
@@ -153,7 +153,7 @@ formele.addEventListener("submit", (e) => {
         })
     }
     // admin/api/product/update/6496bd71562a3865883a2c90
-    fetch(`${Base_Server_url}/admin/api/product/update/${ItemID_Selected}`, options)
+    fetch(`${BaseURL}/admin/api/product/update/${ItemID_Selected}`, options)
         .then((res) => res.json())
         .then((data) => {
             if (data.ok) {

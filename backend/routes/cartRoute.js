@@ -166,7 +166,7 @@ cartRoute.patch("/inc/:itemId", async (req, res) => {
     const decoded = jwt.verify(token, "privateKey");
     const cartId = req.params.id;
     const cart = await CartModel.findOne({ userID: decoded.userID })
-    // console.log(cart);
+  
     if (!cart) {
       return res.status(404).send({ "msg": "Cart Not Found" });
     }
@@ -174,15 +174,13 @@ cartRoute.patch("/inc/:itemId", async (req, res) => {
     const itemId = req.params.itemId;
     let item = null;
 
-    // Search for the item within sales
     item = cart.jeans.find((ele) => ele._id.equals(itemId));
 
-    // If the item is not found within sales, search within fleeces
+
     if (!item) {
       item = cart.shoes.find((ele) => ele._id.equals(itemId));
     }
 
-    // If the item is not found within fleeces, search within rains
     if (!item) {
       item = cart.tops.find((ele) => ele._id.equals(itemId));
     }
@@ -216,15 +214,15 @@ cartRoute.patch("/decr/:itemId", async (req, res) => {
     const itemId = req.params.itemId;
     let item = null;
 
-    // Search for the item within sales
+  
     item = cart.jeans.find((ele) => ele._id.equals(itemId));
 
-    // If the item is not found within sales, search within fleeces
+    
     if (!item) {
       item = cart.shoes.find((ele) => ele._id.equals(itemId));
     }
 
-    // If the item is not found within fleeces, search within rains
+  
     if (!item) {
       item = cart.tops.find((ele) => ele._id.equals(itemId));
     }
@@ -242,6 +240,64 @@ cartRoute.patch("/decr/:itemId", async (req, res) => {
     res.status(400).send({ "msg": error.message });
   }
 })
+cartRoute.delete("/delete/:itemId", async (req, res) => {
+  try {
+    const token = req.headers.authorization?.split(" ")[1]
+    const decoded = jwt.verify(token, "privateKey");
+
+    const cart = await CartModel.findOne({ userID: decoded.userID });
+
+    if (!cart) {
+      return res.status(404).send({ "msg": "Cart Not Found" });
+    }
+
+    const itemId = req.params.itemId;
+
+    let itemArray = null;
+
+
+    let itemIndex = cart.jeans.findIndex((item) => item.data._id.equals(itemId));
+    if (itemIndex !== -1) {
+      itemArray = cart.jeans;
+    }
+
+
+    if (itemIndex === -1) {
+      itemIndex = cart.tops.findIndex((item) => item.data._id.equals(itemId));
+      if (itemIndex !== -1) {
+        itemArray = cart.tops;
+      }
+    }
+
+
+    if (itemIndex === -1) {
+      itemIndex = cart.shoes.findIndex((item) => item.data._id.equals(itemId));
+      if (itemIndex !== -1) {
+        itemArray = cart.shoes;
+      }
+    }
+
+    if (itemIndex === -1) {
+      return res.status(404).send({ "msg": "Item Not Found in Cart" });
+    }
+
+
+    itemArray.splice(itemIndex, 1);
+    await cart.save();
+ 
+    res.status(200).send({ "msg": "Item Removed Successfully" });
+  } catch (error) {
+    res.status(400).send({ "msg": error.message });
+  }
+
+
+
+})
+
+
+
+
+
 
 
 module.exports = cartRoute

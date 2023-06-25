@@ -13,15 +13,59 @@ function showText() {
     index = 0;
   }
 }
+
+const urlParams = new URLSearchParams(window.location.search);
+let tokenurl = urlParams.get('token');
+let username = urlParams.get("username")
+let image = urlParams.get("image")
+let log = document.getElementById("log")
+if (tokenurl) {
+
+  localStorage.setItem("token", tokenurl)
+  localStorage.setItem("username", username)
+  localStorage.setItem("image", image)
+}
+
+// Use the token as needed in your frontend application
+let user = JSON.parse(localStorage.getItem("user")) || []
+
+let displayname = document.getElementById("display-name")
+if (!tokenurl) {
+  displayname.style.display = "none"
+} else {
+  log.style.display="none"
+  let h2c = document.createElement("h2")
+  let imgc = document.createElement("img")
+  h2c.innerText = username;
+  imgc.src = image;
+  displayname.append(h2c, imgc)
+}
+
+
+
+let token = localStorage.getItem("token")
+console.log(user);
+if(user){
+  // displayname.style.display = "block"
+  let h2s = document.createElement("h2")
+  if(!user.name){
+    h2s.style.display="none"
+  }
+  h2s.textContent = ` Mr .${user.name}`
+  log.append(h2s)
+}
+console.log(token);
+
 let logout = document.getElementById("logout")
-let data = JSON.parse(localStorage.getItem("user")) || []
-console.log(data);
+
 setInterval(showText, 2500); // Change text every 3 seconds
 
-const BaseServerUrl = `http://localhost:8080`
+const BaseServerUrl = `https://crazy-eel-top-hat.cyclic.app`
 //////regbtn/////
-let token = localStorage.getItem("token")
+
 let regbtn = document.getElementById("Regbtn")
+
+
 
 if (token) {
   regbtn.textContent = `Logout`
@@ -45,9 +89,9 @@ if (token) {
           });
           localStorage.clear()
           setTimeout(() => {
-            window.location.href="index.html"
+            window.location.href = "index.html"
           }, 2500);
-        }else{
+        } else {
           Swal.fire({
             position: "center",
             icon: "error",
@@ -56,7 +100,7 @@ if (token) {
             // timer: 1500,
           });
         }
-       
+
       })
       .catch((err) => {
         console.log(err);
@@ -69,15 +113,6 @@ if (token) {
 }
 
 
-let showptag = document.getElementById("show-ptag")
-if (data.name) {
-  showptag.innerText = `Mr. ${data.name}`
-} else {
-  showptag.innerText = `Login First`
-  logout.style.display = "none"
-
-}
-
 
 // let carttocart = document.getElementById("carttocart")
 // carttocart.addEventListener("click", () => {
@@ -86,10 +121,10 @@ if (data.name) {
 
 
 
-logout.addEventListener("click", () => {
-  localStorage.clear()
-  window.location.href = "index.html"
-})
+// logout.addEventListener("click", () => {
+//   localStorage.clear()
+//   window.location.href = "index.html"
+// })
 window.addEventListener('scroll', function () {
   var menuIcon = document.querySelector('.header .menu-icon');
   var headerHeight = document.querySelector('.header').offsetHeight;
@@ -103,17 +138,17 @@ window.addEventListener('scroll', function () {
 
 
 let carttocart = document.getElementById("carttocart")
-carttocart.addEventListener("click",()=>{
-    if(token){
-        window.location.href = "./products/cart.html"
-    }else{
-        Swal.fire({
-            position: "center",
-            icon: "error",
-            title: `Login First`,
-            showConfirmButton: false,
-            timer: 1500,
-          });
-    }
+carttocart.addEventListener("click", () => {
+  if (token) {
+    window.location.href = "./products/cart.html"
+  } else {
+    Swal.fire({
+      position: "center",
+      icon: "error",
+      title: `Login First`,
+      showConfirmButton: false,
+      timer: 1500,
+    });
+  }
 
 })

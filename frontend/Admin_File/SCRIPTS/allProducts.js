@@ -1,6 +1,6 @@
-const Base_Server_url = `http://localhost:8080`
+
 const productCart = document.getElementById('cart-container');
-const token = localStorage.getItem("token")
+// const token = localStorage.getItem("token")
 let total = document.getElementById("show_total-products")
 
 const ProductFetch = () => {
