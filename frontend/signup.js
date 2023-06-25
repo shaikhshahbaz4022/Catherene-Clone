@@ -1,6 +1,6 @@
 // const BaseServerUrl = `https://worrisome-hospital-gown-bull.cyclic.app`
 
-const BaseServerUrl = `http://localhost:8080/`
+const BaseServerUrl = `https://crazy-eel-top-hat.cyclic.app`
 
 
 let formel = document.querySelector("form")
@@ -31,7 +31,7 @@ formel.addEventListener("submit", (e) => {
             return res.json()
         })
         .then((data) => {
-            
+            console.log(data);
             showname.innerHTML = `Mr. ${nameel.value} Registration Succesfull`
             Swal.fire({
                 position: "center",
@@ -48,3 +48,22 @@ formel.addEventListener("submit", (e) => {
             console.log(err);
         })
 })
+
+// let click_google = document.getElementById("click-google")
+// click_google.addEventListener("click",()=>{
+//     window.location.href=""
+// })
+// function getCookie(name) {
+//     const value = `; ${document.cookie}`;
+//     const parts = value.split(`; ${name}=`);
+    
+//     if (parts.length === 2) {
+//       return parts.pop().split(';').shift();
+//     }
+//   }
+
+//   const token = getCookie('token');
+//   localStorage.setItem("google",token)
+//   let g = document.cookie
+//   console.log(g);
+//   console.log(token);

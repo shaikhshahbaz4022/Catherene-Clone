@@ -1,5 +1,5 @@
 // const BaseServerUrl = `https://worrisome-hospital-gown-bull.cyclic.app`,
-const BaseServerUrl = `http://localhost:8080`
+const BaseServerUrl = `https://crazy-eel-top-hat.cyclic.app`
 
 //slider top
 
@@ -26,7 +26,7 @@ setInterval(showText, 2500); // Change text every 3 seconds
 var main = document.getElementById('append')
 
 fetchAndRender()
-function fetchAndRender(){
+function fetchAndRender() {
   fetch(`${BaseServerUrl}/cart`, {
     headers: {
       "Content-Type": "application/json",
@@ -38,12 +38,12 @@ function fetchAndRender(){
     })
     .then((data) => {
       // appendata(data)
-   let arr = []
-   arr = [...data.jeans , ...data.tops , ...data.shoes]
-   
+      let arr = []
+      arr = [...data.jeans, ...data.tops, ...data.shoes]
+
       console.log(arr);
       getAllDataofdata(arr)
-  
+
     })
     .catch((err) => {
       console.log(err);
@@ -54,7 +54,7 @@ function fetchAndRender(){
 let newArray = []
 function getAllDataofdata(data) {
   // console.log(data);
- 
+
   appendata(data)
 
 }
@@ -149,7 +149,7 @@ function appendata(data) {
 
     remove.addEventListener("click", () => {
       // console.log("object");
-      fetch(`${BaseServerUrl}/cart/delete/${ele._id}`, {
+      fetch(`${BaseServerUrl}/cart/delete/${ele.data._id}`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
@@ -160,10 +160,24 @@ function appendata(data) {
           return res.json()
         })
         .then((res) => {
-          alert("deleted succesfully")
-          quantity.innerText = res.quantity
+
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: `${res.msg}`,
+            showConfirmButton: false,
+            timer: 1500,
+          });
+          quantity.innerText = res.Quantity
+          // total.textContent = 0
+          // total2.innerText = 0
+          fetchAndRender()
+          console.log(res);
           // console.log(data)
-          window.location.reload()
+          setTimeout(() => {
+
+            window.location.reload()
+          }, 2000);
           // appendata(data)
         })
         .catch((err) => {
@@ -183,9 +197,9 @@ function appendata(data) {
           return res.json()
         })
         .then((res) => {
-        
+
           fetchAndRender()
-          
+
         })
         .catch((err) => {
           console.log(err.message)
@@ -207,7 +221,7 @@ function appendata(data) {
           return res.json()
         })
         .then((res) => {
-        fetchAndRender()
+          fetchAndRender()
         })
         .catch((err) => {
           console.log(err.message)
@@ -250,8 +264,8 @@ function appendata(data) {
   });
 
 
-let sum = localStorage.getItem("sum")
-console.log(sum);
+  let sum = localStorage.getItem("sum")
+  console.log(sum);
   let couponbtn = document.getElementById("coupon-btn")
 
   couponbtn.addEventListener("click", () => {
@@ -260,8 +274,8 @@ console.log(sum);
     if (couponinput.value == "MASAI30") {
       let x = sum * 0.7;
       total2.innerText = x.toFixed(2)
-      sum=x
-      localStorage.setItem("sum",sum)
+      sum = x
+      localStorage.setItem("sum", sum)
       couponbtn.disabled = true;
     }
     console.log(sum);
@@ -311,9 +325,9 @@ if (token) {
           });
           localStorage.clear()
           setTimeout(() => {
-            window.location.href="../index.html"
+            window.location.href = "../index.html"
           }, 2500);
-        }else{
+        } else {
           Swal.fire({
             position: "center",
             icon: "error",
@@ -322,7 +336,7 @@ if (token) {
             // timer: 1500,
           });
         }
-       
+
       })
       .catch((err) => {
         console.log(err);

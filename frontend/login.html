@@ -119,6 +119,24 @@
             display: flex;
             justify-content: space-evenly;
         }
+        .google-signup-link {
+            display: inline-block;
+            text-decoration: none;
+            padding: 10px;
+            background-color: #fff;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+         }
+
+         .google-signup-link:hover {
+            background-color: #f1f1f1;
+         }
+
+         .google-signup-image {
+            width: 30px;
+            height: 30px;
+            margin-right: 5px;
+         }
     </style>
 </head>
 
@@ -148,7 +166,14 @@
             <div id="right">
                 <a href="./signup.html">SignUp</a>
             </div>
+            <a href="https://crazy-eel-top-hat.cyclic.app/users/auth/google" class="google-signup-link">
+                <img id="im"
+                   src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/1200px-Google_%22G%22_Logo.svg.png"
+                   alt="Google Logo" class="google-signup-image">
+                Login With Google
+             </a>
         </form>
+
     </div>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

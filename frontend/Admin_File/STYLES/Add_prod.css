@@ -1,0 +1,147 @@
+.form-container {
+    margin: auto;
+    margin-top: 20px;
+    width: 30%;
+    padding: 20px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+  }
+  
+  .form-field {
+    margin-bottom: 15px;
+  }
+  
+  .form-field label {
+    font-weight: bold;
+  }
+  
+  .form-field input,
+  .form-field textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  .form-field input[type="number"] {
+    width: auto;
+  }
+  
+  .form-field textarea {
+    height: 80px;
+  }
+  
+  .form-field input[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .form-field input[type="submit"]:hover {
+    background-color: #0056b3;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  a {
+    text-decoration: none;
+    color: white;
+    margin-left: 10px;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+    font-weight: 700;
+    color: black;
+  }
+  
+  .container {
+    display: flex;
+  }
+  
+  .sidebar {
+    background-color: #283593;
+    width: 300px;
+    padding: 20px;
+    position: fixed;
+    height: 100%;
+  }
+  
+  .sidebar h2 {
+    color: white;
+    margin-top: 0;
+    margin-bottom: 40px;
+    text-align: center;
+  }
+  
+  .sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .sidebar li {
+    margin-top: 15px;
+    margin-left: 20px;
+    color: white;
+    font-size: 18px;
+    margin-bottom: 10px;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar li:hover {
+    border-radius: 5px;
+    text-decoration: underline;
+    background-color: #E0E0E0;
+    color: black;
+}
+  
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column;
+    }
+  
+    .sidebar {
+      position: static;
+      width: 100%;
+    }
+  
+    .main {
+      margin-left: 0;
+      margin-top: 20px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .sidebar {
+      padding: 10px;
+    }
+  
+    .main {
+      padding: 10px;
+    }
+  }
+  
+  @media screen and (max-width: 600px) {
+    .form-container {
+      width: 100%;
+    }
+  
+    .form-field input,
+    .form-field textarea {
+      width: 100%;
+    }
+  }
+  
